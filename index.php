@@ -1,6 +1,6 @@
 <?php
 
-include_once("src/sinusbot/autoload.php");
+include_once("./src/sinusbot/autoload.php");
 
 $sinusbot = new SinusBot\API("http://127.0.0.1:8087");
 $sinusbot->login("webUser", "yH>q]7rC+:g?$]Q#");
