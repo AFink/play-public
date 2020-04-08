@@ -44,7 +44,7 @@ class Folder extends RestClient
         $this->uuid = $folder['uuid'];
         $this->folder = $folder;
     }
-    
+
     /**
     * getTitle returns the title
     *
@@ -158,4 +158,24 @@ class Folder extends RestClient
         "parent" => $parent,
         ]);
     }
+
+    public function getThumbnail()
+    {
+      return null;
+    }
+    public function getDuration()
+    {
+      return 0;
+    }
+    public function getArtist()
+    {
+      return null;
+    }
+    public function getAlbum()
+    {
+      return null;
+    }
+public function getFolderPrivate(){
+  return $this->folder;
+}
 }

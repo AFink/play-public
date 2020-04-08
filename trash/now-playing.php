@@ -32,7 +32,7 @@ return $minutes . ":" . $seconds;
  ?>
  <div style="position: fixed; bottom: 0; left: 0; right: 0; background-color: #eee; box-shadow: 0 -6px 8px rgba(0,0,0,0.14)" class="container-fluid foot-player ng-scope">
      <div class="progress" style="height:auto;">
-         <div style="position: absolute; top: -5px; left: 0px; right: 0px; height: 5px;">
+         <div style="position: absolute; top: -5px; left: 0px; right: 0px; height: 5px;transition: all 1s ease-out;">
              <div class="progress-bar" id="progress" role="progressbar" style="height:5px; width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
          </div>
      </div>
@@ -51,8 +51,8 @@ return $minutes . ":" . $seconds;
              <table style="height: 60px; width: 100%; background-color: transparent !important" class="foot-controls">
                  <tbody>
                      <tr>
-                         <td style="vertical-align: middle; cursor: pointer; text-align:center;" ng-click="togglePlay()"><svg class="bi bi-play-fill" height="50px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 010 1.393z"/></svg></td>
-                         <td style="vertical-align: middle; cursor: pointer;text-align:center;" ng-click="nextTrack()"><svg class="bi bi-pause-fill" height="50px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M5.5 3.5A1.5 1.5 0 017 5v6a1.5 1.5 0 01-3 0V5a1.5 1.5 0 011.5-1.5zm5 0A1.5 1.5 0 0112 5v6a1.5 1.5 0 01-3 0V5a1.5 1.5 0 011.5-1.5z"/></svg></td>
+                         <td id="play" style="vertical-align: middle; cursor: pointer; text-align:center;" onclick="Play()"><svg class="bi bi-play-fill" height="50px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 010 1.393z"/></svg></td>
+                         <td id="pause" style="vertical-align: middle; cursor: pointer;text-align:center;" onclick="Pause()"><svg class="bi bi-pause-fill" height="50px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M5.5 3.5A1.5 1.5 0 017 5v6a1.5 1.5 0 01-3 0V5a1.5 1.5 0 011.5-1.5zm5 0A1.5 1.5 0 0112 5v6a1.5 1.5 0 01-3 0V5a1.5 1.5 0 011.5-1.5z"/></svg></td>
                      </tr>
                  </tbody>
              </table>
@@ -74,31 +74,79 @@ return $minutes . ":" . $seconds;
      <div class="bottom-gap"></div>
  </div>
 
- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
+/*
 function millisToMinutesAndSeconds(millis) {
 var minutes = Math.floor(millis / 60000);
 var seconds = ((millis % 60000) / 1000).toFixed(0);
 return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 
+function updateValues(){
+  document.getElementById("position").innerHTML = millisToMinutesAndSeconds(position);
+  document.getElementById("duration").innerHTML = millisToMinutesAndSeconds(duration);  //maybe just once but
+  document.getElementById("progress").style.width = (position/duration) * 100 + '%';
+  if (playing) {
+    document.getElementById("play").style.display = 'none';
+    document.getElementById("pause").style.display = '';
+  }else {
+    document.getElementById("play").style.display = '';
+    document.getElementById("pause").style.display = 'none';
+  }
+
+}
+
 var position = <?php echo $position ?>;
 var duration = <?php echo $duration ?>;
+var playing = <?php if($instance->isPlaying()){echo "true";}else{echo "false";} ?>;
+updateValues();
 var t=setInterval(updateTimer,1000);
 
 function updateTimer(){
-position = position + 1000;
+  if (playing) {
+    position = position + 1000;
+  }
+
 if (position >= duration) {
   position = duration;
 }
-document.getElementById("position").innerHTML = millisToMinutesAndSeconds(position);
-document.getElementById("duration").innerHTML = millisToMinutesAndSeconds(duration);  //maybe just once but
-document.getElementById("progress").style.width = (position/duration) * 100 + '%';
+updateValues();
 console.log(position/duration);
 
 }
 
+function Play(){
+  $(function()
+        {
+            $.ajax( "act.php?action=play" )
+
+        });
+        playing = true;
+        position = 0;
+}
+
+
+function Pause(){
+  $(function()
+        {
+            $.ajax( "act.php?action=pause" )
+
+        });
+      playing = false;
+}
+*/
+</script>
+
+<script type="text/javascript">
+var position = <?php echo $position ?>;
+var duration = <?php echo $duration ?>;
+var playing = <?php if($instance->isPlaying()){echo "true";}else{echo "false";} ?>;
+updateValues();
+//updateTimer();
+//var t = 0;
+//t=setInterval(updateTimer,1000);
 </script>

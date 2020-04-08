@@ -40,7 +40,7 @@ class Playlist extends RestClient
         $this->uuid = $playlist['uuid'];
         $this->playlist = $playlist;
     }
-  
+
     /**
     * rename renames a playlist
     *
@@ -83,7 +83,8 @@ class Playlist extends RestClient
     {
         return array_key_exists('entries', $this->playlist)?$this->playlist['entries']:[];
     }
-    
+
+
     /**
     * getSource returns the source of the playlist
     *
@@ -93,7 +94,7 @@ class Playlist extends RestClient
     {
         return array_key_exists('source', $this->playlist)?$this->playlist['source']:'';
     }
-  
+
     /**
     * addPlaylistTrack adds a track to the playlist
     *
@@ -106,7 +107,7 @@ class Playlist extends RestClient
         "uuid" => $trackUUID,
         ]);
     }
-   
+
     /**
     * deleteTrack deletes a track from the playlist
     *
@@ -117,7 +118,7 @@ class Playlist extends RestClient
     {
         return $this->request('/bot/playlists/'.$this->uuid.'/'.$trackPosition, 'DELETE');
     }
-   
+
     /**
     * deleteTracks deletes all the tracks in the playlist
     *
@@ -129,13 +130,13 @@ class Playlist extends RestClient
         if ($currentTracks == null or !is_array($currentTracks)) {
             return null;
         }
-    
+
         return $this->request('/bot/bulk/playlist/'.$this->uuid.'/files', 'POST', [
         "op" => "delete",
         "files" => array_keys($currentTracks['entries']),
         ]);
     }
-    
+
     /**
     * delete deletes a playlist
     *
@@ -144,5 +145,10 @@ class Playlist extends RestClient
     public function delete()
     {
         return $this->request('/bot/playlists/'.$this->uuid, 'DELETE');
+    }
+
+    public function getUUID(){
+      return $this->uuid;
+
     }
 }

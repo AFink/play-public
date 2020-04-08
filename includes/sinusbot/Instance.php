@@ -47,7 +47,7 @@ class Instance extends RestClient
     */
     public function isPlaying()
     {
-        return $this->instance['playing'];
+        return $this->getStatus()['playing'];
     }
 
     /**
@@ -57,7 +57,7 @@ class Instance extends RestClient
     */
     public function isRunning()
     {
-        return $this->instance['running'];
+        return $this->getStatus()['running'];
     }
 
     /**
@@ -467,6 +467,17 @@ class Instance extends RestClient
         return $this->request('/bot/i/'.$this->uuid.'/stop', 'POST', '');
     }
 
+
+
+        /**
+        * stop stops the playback
+        *
+        * @return array status
+        */
+        public function pause()
+        {
+            return $this->request('/bot/i/'.$this->uuid.'/pause', 'POST', '');
+        }
     /**
     * seekPlayback seeks to a given position
     *
@@ -507,6 +518,37 @@ class Instance extends RestClient
     {
         return $this->getStatus()['position'];
     }
+    public function getShuffle()
+    {
+        return $this->getStatus()['shuffle'];
+    }
+    public function getRepeat()
+    {
+        return $this->getStatus()['repeat'];
+    }
+    public function ytPlay($url)
+    {
+        return $this->request('/bot/i/'.$this->uuid.'/event/ytplay', 'POST', strval($url));
+    }
+    public function ytEnq($url)
+    {
+        return $this->request('/bot/i/'.$this->uuid.'/event/ytenq', 'POST', strval($url));
+    }
+    public function ytDl($url)
+    {
+        return $this->request('/bot/i/'.$this->uuid.'/event/ytdl', 'POST', strval($url));
+    }
+    public function isCurrentFromPlaylist()
+    {
+        return isset($this->getStatus()['playlist']);
+    }
 
-
+    public function currentPlaylist()
+    {
+        return $this->getStatus()['playlist'];
+    }
+    public function currentPlaylistTrackID()
+    {
+        return $this->getStatus()['playlistTrack'];
+    }
 }

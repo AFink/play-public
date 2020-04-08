@@ -1,0 +1,4 @@
+https://github.com/andreruffert/rangeslider.js MIT
+
+
+<h3 class="volume"><?php echo $instancevolume ?>%</h3>

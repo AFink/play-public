@@ -98,7 +98,8 @@ class API extends RestClient
         }
         return $out;
     }
-  
+
+    
     /**
     * getRadioStations returns the imported radio stations
     *
@@ -109,7 +110,7 @@ class API extends RestClient
     {
         return $this->request('/bot/stations?q='.urlencode($search));
     }
-  
+
     /**
     * getInfo returns the bot infos
     *
@@ -119,7 +120,7 @@ class API extends RestClient
     {
         return $this->request('/bot/info');
     }
-  
+
     /**
     * getPlaylists returns the playlists
     *
@@ -134,7 +135,7 @@ class API extends RestClient
         }
         return $out;
     }
-  
+
     /**
     * createPlaylist creates a new playlist
     *
@@ -162,7 +163,7 @@ class API extends RestClient
         "importFrom" => $url,
         ]);
     }
-  
+
     /**
     * addURL
     *
@@ -179,7 +180,7 @@ class API extends RestClient
         "parent" => $parent,
         ]);
     }
-  
+
     /**
     * addFolder
     *
@@ -194,7 +195,7 @@ class API extends RestClient
         "parent" => $parent,
         ]);
     }
-  
+
     /**
     * moveFolder
     *
@@ -206,7 +207,7 @@ class API extends RestClient
     {
         return $this->moveTrack($folderUUID, $parent);
     }
-  
+
     /**
     * renameFolder
     *
@@ -222,7 +223,7 @@ class API extends RestClient
         "title" => $folderName,
         ]);
     }
-  
+
     /**
     * getJobs
     *
@@ -232,7 +233,7 @@ class API extends RestClient
     {
         return $this->request('/bot/jobs');
     }
-  
+
     /**
     * addJob
     *
@@ -245,7 +246,7 @@ class API extends RestClient
         'url'=>$URL,
         ]);
     }
-  
+
     /**
     * deleteJob
     *
@@ -256,7 +257,7 @@ class API extends RestClient
     {
         return $this->request('/bot/jobs/'.$jobUUID, 'DELETE');
     }
-  
+
     /**
     * deleteFinishedJobs
     *
@@ -266,7 +267,7 @@ class API extends RestClient
     {
         return $this->request('/bot/jobs', 'DELETE');
     }
-  
+
     /**
     * uploadTrack
     *
@@ -277,7 +278,7 @@ class API extends RestClient
     {
         return $this->request('/bot/upload', 'POST', file_get_contents($path));
     }
-  
+
     /**
     * getUsers
     *
@@ -292,7 +293,7 @@ class API extends RestClient
         }
         return $out;
     }
-  
+
     /**
     * addUser
     *
@@ -347,7 +348,7 @@ class API extends RestClient
             }
         }
     }
-  
+
     /**
     * getInstances
     *
@@ -363,7 +364,7 @@ class API extends RestClient
         }
         return $out;
     }
-  
+
     /**
     * createInstance
     *
@@ -379,7 +380,7 @@ class API extends RestClient
         ]);
         return $this->getInstanceByUUID($resp['uuid']);
     }
-  
+
     /**
     * getDefaultBot
     *
@@ -390,7 +391,7 @@ class API extends RestClient
         $req = $this->request('/botId');
         return (isset($req['defaultBotId'])) ? $req['defaultBotId'] : null;
     }
-  
+
     /**
     * getBotLog
     *
@@ -400,7 +401,7 @@ class API extends RestClient
     {
         return $this->request('/bot/log');
     }
-    
+
     /**
     * getInstanceByUUID
     *
@@ -413,4 +414,23 @@ class API extends RestClient
         $instance['uuid'] = $uuid;
         return new Instance($this, $instance);
     }
+    public function getPlaylistByUUID($uuid)
+    {
+      $playlist = $this->request('/bot/playlists/' .$uuid);
+      return new Playlist($this, $playlist);
+    }
+    public function getFolderByUUID($uuid)
+    {
+      $folders = $this->getFolders();
+      $item = null;
+      foreach($folders as $folder) {
+        if ($uuid == $folder->getUUID()) {
+            $item = $folder;
+            break;
+        }
+      }
+      return $item;
+    }
+
+
 }

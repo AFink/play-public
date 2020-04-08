@@ -72,7 +72,10 @@ class File extends RestClient
     {
         return array_key_exists('type', $this->file)?$this->file['type']:'';
     }
-
+    public function getAlbum()
+    {
+        return array_key_exists('album', $this->file)?$this->file['album']:'';
+    }
     /**
     * getArtist returns the artist
     *

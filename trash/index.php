@@ -9,10 +9,19 @@ $files = $sinusbot->getFiles();
 
 $instances = $sinusbot->getInstances();
 
-if(isset($_GET['play'])){
-  $instance->playTrack($_GET['play']);
-}
+function msConv($ms){
+$uSec = $ms % 1000;
+$ms = floor($ms / 1000);
 
+$seconds = $ms % 60;
+$ms = floor($ms / 60);
+
+$minutes = $ms % 60;
+$ms = floor($ms / 60);
+
+$hour = $ms ;
+return $minutes . ":" . $seconds;
+}
 
 
 ?>
@@ -26,11 +35,10 @@ if(isset($_GET['play'])){
 
 <?php
 foreach ($files as $file):?>
+
 <tr onclick="window.location='?play=<?php echo $file->getUUID()?>';">
 
-<td>  <?php if ($instancecurrent->getUUID() == $file->getUUID()) {
-  echo "penis";
-  } ?><?php echo $file->getTitle(); ?></td>
+<td>  <?php if ($instancecurrent->getUUID() == $file->getUUID()) {echo "penis";} ?><?php echo $file->getTitle(); ?><?php echo msConv($file->getDuration())?></td>
 <td><?php if($file->getType() !== "folder"){echo $file->getArtist();}else {echo "";} ?></td>
 <td><?php if($file->getType() !== "folder"){echo $file->getThumbnail();} else {echo "";} ?></td>
 
