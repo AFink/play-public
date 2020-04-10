@@ -87,6 +87,7 @@ class API extends RestClient
                     } else {
                         $curr =  new File($this, $t);
                     }
+                    
                     if ($o->addChildrenIfOK($curr)) {
                         unset($todo[$key]);
                     }
@@ -99,7 +100,12 @@ class API extends RestClient
         return $out;
     }
 
-    
+    public function getFiles2()
+    {
+        $files = $this->request('/bot/files');
+        return $files;
+    }
+
     /**
     * getRadioStations returns the imported radio stations
     *

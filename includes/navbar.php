@@ -20,7 +20,7 @@ $urls = array(
               <?php endforeach; ?>
             </div>
             <?php if($search): ?>
-            <form action="javascript:void(0)"class="form-inline ml-auto">
+            <form action="javascript:void(0)"class="form-inline ml-auto d-none d-sm-block">
                 <input type="text" id="search" class="form-control mr-sm-2" placeholder="Search">
             </form>
           <?php endif; ?>

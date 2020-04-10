@@ -4,12 +4,13 @@
 define("_SINUSURL","https://sinusbot.andreasfink.xyz");
 define("_USERNAME","webUser");
 define("_PASSWORD","yH>q]7rC+:g?$]Q#");
-define("_INSTANCEUUID","4d7971ca-3638-e267-6bea-076b54fa637d");
-
+define("_INSTANCEUUID","38feb4a3-99df-15e9-5cd0-06d73137141f");
+define("_MAXRESULTS", 25);
 
 
 
 include_once("../includes/sinusbot/autoload.php");
+require_once '../includes/vendor/autoload.php';
 
 $sinusbot = new SinusBot\API(_SINUSURL);
 $sinusbot->login(_USERNAME, _PASSWORD);
@@ -20,6 +21,15 @@ $instanceplaying = $instance->isPlaying();
 $instancevolume = $instance->getVolume();
 $instancecurrent = $instance->getCurrentTrack();
 
+$googleClient = null;
+$youtube = null;
+function makeGoogle(){
+  global $googleClient;
+  global $youtube;
+  $googleClient = new Google_Client();
+  $googleClient->setDeveloperKey(_DEVELOPER_KEY);
+  $youtube = new Google_Service_YouTube($googleClient);
+}
 
 
 

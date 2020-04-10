@@ -4,6 +4,12 @@ $uuid = $instancecurrent->getUUID();
 
 if (isset($_GET['action'])) {
   switch ($_GET['action']) {
+    case 'ytsearch':
+      if (isset($_GET['q'])) {
+        makeGoogle();
+        youtubeSearch($_GET['q']);
+      }
+      break;
     case 'queueLength':
       echo(count($instance->getQueueTracks()));
       break;
@@ -117,7 +123,7 @@ function displayFilesGrid(){
         $i++;
       ?>
       <tr onclick="<?php if($file->getType() !== "folder"): ?>playFile('<?php echo $file->getUUID()?>')<?php else: ?>showFolder('<?php echo ($i-1) ?>')<?php endif;?>">
-        <td><?php if($file->getType() !== "folder"): ?><img style="width:30px;height:30px;"src="//sinusbot.awedel.de<?php echo $file->getThumbnail(); ?>"><?php else: ?><svg class="bi bi-folder-fill" width="30px" height="30px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.828 3h3.982a2 2 0 011.992 2.181l-.637 7A2 2 0 0113.174 14H2.826a2 2 0 01-1.991-1.819l-.637-7a1.99 1.99 0 01.342-1.31L.5 3a2 2 0 012-2h3.672a2 2 0 011.414.586l.828.828A2 2 0 009.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 006.172 2H2.5a1 1 0 00-1 .981l.006.139z" clip-rule="evenodd"/></svg><?php endif;?></td>
+        <td><?php if($file->getType() !== "folder"): ?><img style="width:30px;height:30px;"src="//sinusbot1.awedel.de<?php echo $file->getThumbnail(); ?>"><?php else: ?><svg class="bi bi-folder-fill" width="30px" height="30px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.828 3h3.982a2 2 0 011.992 2.181l-.637 7A2 2 0 0113.174 14H2.826a2 2 0 01-1.991-1.819l-.637-7a1.99 1.99 0 01.342-1.31L.5 3a2 2 0 012-2h3.672a2 2 0 011.414.586l.828.828A2 2 0 009.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 006.172 2H2.5a1 1 0 00-1 .981l.006.139z" clip-rule="evenodd"/></svg><?php endif;?></td>
         <td><?php echo $i?></td>
         <td><?php echo $file->getTitle(); ?></td>
         <td><?php if($file->getType() !== "folder"){echo msConv($file->getDuration());} ?></td>
@@ -160,12 +166,12 @@ function displayFolderGrid(){ global $folders;?>
         $i++;
       ?>
       <tr onclick="<?php if($file->getType() !== "folder"): ?>playFile('<?php echo $file->getUUID()?>')<?php else: ?>showFolder('<?php echo ($i-1) ?>')<?php endif;?>">
-        <td><?php if($file->getType() !== "folder"): ?><img style="width:30px;height:30px;"src="//sinusbot.awedel.de<?php echo $file->getThumbnail(); ?>"><?php else: ?><svg class="bi bi-folder-fill" width="30px" height="30px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.828 3h3.982a2 2 0 011.992 2.181l-.637 7A2 2 0 0113.174 14H2.826a2 2 0 01-1.991-1.819l-.637-7a1.99 1.99 0 01.342-1.31L.5 3a2 2 0 012-2h3.672a2 2 0 011.414.586l.828.828A2 2 0 009.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 006.172 2H2.5a1 1 0 00-1 .981l.006.139z" clip-rule="evenodd"/></svg><?php endif;?></td>
+        <td><?php if($file->getType() !== "folder"): ?><img style="width:30px;height:30px;"src="//sinusbot1.awedel.de<?php echo $file->getThumbnail(); ?>"><?php else: ?><svg class="bi bi-folder-fill" width="30px" height="30px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.828 3h3.982a2 2 0 011.992 2.181l-.637 7A2 2 0 0113.174 14H2.826a2 2 0 01-1.991-1.819l-.637-7a1.99 1.99 0 01.342-1.31L.5 3a2 2 0 012-2h3.672a2 2 0 011.414.586l.828.828A2 2 0 009.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 006.172 2H2.5a1 1 0 00-1 .981l.006.139z" clip-rule="evenodd"/></svg><?php endif;?></td>
         <td><?php echo $i?></td>
         <td><?php echo $file->getTitle(); ?></td>
-        <td><?php if($file->getType() !== "folder"){echo msConv($file->getDuration());} ?></td>
-        <td><?php if($file->getType() !== "folder"){echo $file->array->artist;}else {echo "a";} ?></td>
-        <td><?php if($file->getType() !== "folder"){echo $file->getAlbum();}else {echo "";} ?> <?php var_dump($file->array->artist) ?></td>
+        <td><?php if($file->getType() !== "folder"){ echo msConv($file->getDuration()); } ?></td>
+       <td><?php if($file->getType() !== "folder"){ echo $file->getArtist();}else {echo "a"; } ?></td>
+        <td><?php if($file->getType() !== "folder"){ echo $file->getAlbum();}else {echo ""; } ?></td>
       </tr>
       <?php endforeach;?>
   <?php
@@ -299,8 +305,8 @@ $repeat = $instance->getRepeat();
                        <tr>
                          <td id="repeat" class="icon <?php if ($repeat) {echo "active";} ?>" style="vertical-align: middle; cursor: pointer; text-align:center;" onclick="toggleRepeat()"><svg class="bi bi-arrow-repeat" height="30px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M2.854 7.146a.5.5 0 00-.708 0l-2 2a.5.5 0 10.708.708L2.5 8.207l1.646 1.647a.5.5 0 00.708-.708l-2-2zm13-1a.5.5 0 00-.708 0L13.5 7.793l-1.646-1.647a.5.5 0 00-.708.708l2 2a.5.5 0 00.708 0l2-2a.5.5 0 000-.708z" clip-rule="evenodd"/> <path fill-rule="evenodd" d="M8 3a4.995 4.995 0 00-4.192 2.273.5.5 0 01-.837-.546A6 6 0 0114 8a.5.5 0 01-1.001 0 5 5 0 00-5-5zM2.5 7.5A.5.5 0 013 8a5 5 0 009.192 2.727.5.5 0 11.837.546A6 6 0 012 8a.5.5 0 01.501-.5z" clip-rule="evenodd"/></svg></td>
                          <td id="back" class="icon" style="vertical-align: middle; cursor: pointer; text-align:center;" onclick="back()"><svg class="bi bi-skip-backward-fill" height="50px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M.5 3.5A.5.5 0 000 4v8a.5.5 0 001 0V4a.5.5 0 00-.5-.5z" clip-rule="evenodd"/> <path d="M.904 8.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V4.308c0-.63-.692-1.01-1.233-.696L.904 7.304a.802.802 0 000 1.393z"/> <path d="M8.404 8.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V4.308c0-.63-.693-1.01-1.233-.696L8.404 7.304a.802.802 0 000 1.393z"/></svg></td>
-                         <td id="play" class="icon" style="vertical-align: middle; cursor: pointer; text-align:center;" onclick="Play()"><svg class="bi bi-play-fill" height="50px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 010 1.393z"/></svg></td>
-                         <td id="stop" class="icon" style="vertical-align: middle; cursor: pointer;text-align:center;" onclick="Stop()"><svg class="bi bi-stop-fill" height="50px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M5 3.5h6A1.5 1.5 0 0112.5 5v6a1.5 1.5 0 01-1.5 1.5H5A1.5 1.5 0 013.5 11V5A1.5 1.5 0 015 3.5z"/></svg></td>
+                         <td id="play" class="icon" style="vertical-align: middle; cursor: pointer; text-align:center;" onclick="play()"><svg class="bi bi-play-fill" height="50px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 010 1.393z"/></svg></td>
+                         <td id="stop" class="icon" style="vertical-align: middle; cursor: pointer;text-align:center;" onclick="stop()"><svg class="bi bi-stop-fill" height="50px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M5 3.5h6A1.5 1.5 0 0112.5 5v6a1.5 1.5 0 01-1.5 1.5H5A1.5 1.5 0 013.5 11V5A1.5 1.5 0 015 3.5z"/></svg></td>
                          <td id="forward" class="icon" style="vertical-align: middle; cursor: pointer; text-align:center;" onclick="forward()"><svg class="bi bi-skip-forward-fill" height="50px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" d="M15.5 3.5a.5.5 0 01.5.5v8a.5.5 0 01-1 0V4a.5.5 0 01.5-.5z" clip-rule="evenodd"/> <path d="M7.596 8.697l-6.363 3.692C.693 12.702 0 12.322 0 11.692V4.308c0-.63.693-1.01 1.233-.696l6.363 3.692a.802.802 0 010 1.393z"/> <path d="M15.096 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.693-1.01 1.233-.696l6.363 3.692a.802.802 0 010 1.393z"/></svg></td>
                          <td id="shuffle" class="icon <?php if ($shuffle) {echo "active";} ?>" style="vertical-align: middle; cursor: pointer; text-align:center;" onclick="toggleShuffle()"><svg class="bi bi-shuffle" height="30px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.646 1.146a.5.5 0 01.708 0l2.5 2.5a.5.5 0 010 .708l-2.5 2.5a.5.5 0 01-.708-.708L14.793 4l-2.147-2.146a.5.5 0 010-.708zm0 8a.5.5 0 01.708 0l2.5 2.5a.5.5 0 010 .708l-2.5 2.5a.5.5 0 01-.708-.708L14.793 12l-2.147-2.146a.5.5 0 010-.708z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M0 4a.5.5 0 01.5-.5h2c3.053 0 4.564 2.258 5.856 4.226l.08.123c.636.97 1.224 1.865 1.932 2.539.718.682 1.538 1.112 2.632 1.112h2a.5.5 0 010 1h-2c-1.406 0-2.461-.57-3.321-1.388-.795-.755-1.441-1.742-2.055-2.679l-.105-.159C6.186 6.242 4.947 4.5 2.5 4.5h-2A.5.5 0 010 4z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M0 12a.5.5 0 00.5.5h2c3.053 0 4.564-2.258 5.856-4.226l.08-.123c.636-.97 1.224-1.865 1.932-2.539C11.086 4.93 11.906 4.5 13 4.5h2a.5.5 0 000-1h-2c-1.406 0-2.461.57-3.321 1.388-.795.755-1.441 1.742-2.055 2.679l-.105.159C6.186 9.758 4.947 11.5 2.5 11.5h-2a.5.5 0 00-.5.5z" clip-rule="evenodd"/></svg></td>
                        </tr>
@@ -331,5 +337,7 @@ $repeat = $instance->getRepeat();
 
 
   <?php };
+
+
 
 ?>

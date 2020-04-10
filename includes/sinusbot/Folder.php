@@ -95,22 +95,28 @@ class Folder extends RestClient
     *
     * @return File file
     * @api
-    */
+    * */
     public function addChildrenIfOK($file)
-    {
-        if ($this->getUUID()=== $file->getParent()) {
-            array_push($this->children, $file);
-            return true;
-        }
-        foreach ($this->children as $children) {
-            if ($children->getType() === "folder") {
-                if ($children->addChildrenIfOK($file)) {
-                    return true;
-                }
+        {
+            if ($this->getUUID()=== $file->getParent()) {
+                array_push($this->children, $file);
+                return true;
             }
+            foreach ($this->children as $children) {
+              try {
+                if ($children->getType() === "folder") {
+
+                    if ($children->addChildrenIfOK($file)) {
+                        return true;
+                    }
+                }
+              } catch (Exception $e) {
+                var_dump($e);
+                var_dump($children);
+              };
+            };
+            return false;
         }
-        return false;
-    }
 
     /**
     * getChildren returns the children of the folder
@@ -175,7 +181,6 @@ class Folder extends RestClient
     {
       return null;
     }
-public function getFolderPrivate(){
-  return $this->folder;
-}
+
+
 }
