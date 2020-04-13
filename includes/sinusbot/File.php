@@ -127,7 +127,7 @@ class File extends RestClient
     */
     public function getThumbnail()
     {
-        return array_key_exists('thumbnail', $this->file)?'/cache/'.$this->file["thumbnail"]:null;
+        return array_key_exists('thumbnail', $this->file)? $this->file["thumbnail"]:null;
     }
 
 
@@ -155,4 +155,14 @@ class File extends RestClient
         "parent" => $parent,
         ]);
     }
+
+    public function getTempTitle()
+    {
+        return array_key_exists('tempTitle', $this->file)?$this->file['tempTitle']:'';
+    }
+    public function getTempArtist()
+    {
+        return array_key_exists('tempArtist', $this->file)?$this->file['tempArtist']:'';
+    }
+
 }

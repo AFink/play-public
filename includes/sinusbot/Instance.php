@@ -538,6 +538,10 @@ class Instance extends RestClient
     {
         return $this->request('/bot/i/'.$this->uuid.'/event/ytdl', 'POST', strval($url));
     }
+    public function status()
+    {
+        return $this->request('/bot/i/'.$this->uuid.'/event/status', 'POST',[]);
+    }
     public function isCurrentFromPlaylist()
     {
         return isset($this->getStatus()['playlist']);
@@ -550,5 +554,10 @@ class Instance extends RestClient
     public function currentPlaylistTrackID()
     {
         return $this->getStatus()['playlistTrack'];
+    }
+
+    public function getUUID()
+    {
+        return $this->uuid;
     }
 }
