@@ -94,9 +94,14 @@ function makeSlider() {
         onSlideEnd: function (value, percent, position) {
           $.ajax({
               url: "act.php?action=changeVolume&volume=" + value,
-              success: function() {
+              success: function(data) {
+                  infoMsg(data);
+                  console.log(data);
                   getData();
-              },
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                  errorAlert.fire();
+                }
           });
         }
     });
@@ -153,7 +158,7 @@ function datatable(){
         { responsivePriority: 99, targets: 1 },
         { responsivePriority: 1, targets: 2 }
     ],
-    fixedHeader:  true,
+    fixedHeader:  false,
       "paging":   false,
       "info":     false
   });
@@ -196,6 +201,7 @@ function showFiles(){
   });
 
 }
+
 function showFolder(i){
   folder.push(i);
   folderAjax();
@@ -296,7 +302,7 @@ function showRadio(){
       $(row).attr('onclick','playUrl(\'' + data['u'] +'\')');
   },
     ajax: {
-        url: './src/json/json2.json',
+        url: './src/json/radio.json',
         dataSrc: 'e'
     },
     columns: [
@@ -327,11 +333,15 @@ function playFile(uuid) {
      $(function() {
          $.ajax({
              url: "act.php?playuuid=" + uuid,
-             success: function() {
+             success: function(data) {
+                 infoMsg(data);
                playing = true;
                position = 0;
                  getData();
-             },
+               },
+               error: function (xhr, ajaxOptions, thrownError) {
+                 errorAlert.fire();
+               }
          });
      });
 
@@ -340,11 +350,15 @@ function playPl(uuid,i){
    $(function() {
        $.ajax({
            url: "act.php?playpl=" + uuid + "&i=" + i,
-           success: function() {
+           success: function(data) {
+               infoMsg(data);
              playing = true;
              position = 0;
                getData();
-           },
+             },
+             error: function (xhr, ajaxOptions, thrownError) {
+               errorAlert.fire();
+             }
        });
    });
  }
@@ -353,11 +367,14 @@ function playUrl(url){
       $.ajax({
           url: "act.php?playurl=" + encodeURIComponent(url),
           success: function(data) {
-            console.log(data);
+              infoMsg(data);
             playing = true;
             position = 0;
               getData();
-          },
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+              errorAlert.fire();
+            }
       });
   });
 }
@@ -393,9 +410,8 @@ function updateValues() {
 function getData() {
   console.log("did");
     $.ajax({
-        type: "POST",
-        data: {view:"player"},
-        url: "act.php",
+        type: "GET",
+        url: "act.php?action=getData",
         success: function(data, textStatus) {
             var response = JSON.parse(data);
              title = response.title;
@@ -462,24 +478,29 @@ if(running){
 /**
  *  Playbar
  */
-function play() {
-    $(function() {
-      $.ajax({
+function play(){
+    $.ajax({
         url: "act.php?action=play",
         success: function(data) {
-          var re = JSON.parse(data);
-           console.log(re.message);
-        }
-    });
-
+            infoMsg(data);
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+            errorAlert.fire();
+          }
     });
     playing = true;
     position = 0;
 }
-function stop() {
-    $(function() {
-        $.ajax("act.php?action=stop")
 
+function stop() {
+  $.ajax({
+    url: "act.php?action=stop",
+    success: function(data) {
+        infoMsg(data);
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        errorAlert.fire();
+      }
     });
     playing = false;
 }
@@ -487,9 +508,13 @@ function toggleRepeat() {
   $(function() {
       $.ajax({
           url: "act.php?action=togglerepeat",
-          success: function() {
+          success: function(data) {
+            infoMsg(data);
               getData();
-          },
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+              errorAlert.fire();
+            }
       });
   });
 }
@@ -497,9 +522,13 @@ function toggleShuffle() {
   $(function() {
       $.ajax({
           url: "act.php?action=toggleshuffle",
-          success: function() {
+          success: function(data) {
+              infoMsg(data);
               getData();
-          },
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+              errorAlert.fire();
+            }
       });
   });
 }
@@ -507,9 +536,13 @@ function back() {
   $(function() {
       $.ajax({
           url: "act.php?action=back",
-          success: function() {
+          success: function(data) {
+              infoMsg(data);
               getData();
-          },
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+              errorAlert.fire();
+            }
       });
   });
 }
@@ -517,9 +550,13 @@ function forward() {
   $(function() {
       $.ajax({
           url: "act.php?action=forward",
-          success: function() {
+          success: function(data) {
+              infoMsg(data);
               getData();
-          },
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+              errorAlert.fire();
+            }
       });
   });
 }
@@ -533,11 +570,11 @@ function chooseInstance(uuid){
   $("#" + uuid).addClass("active");
   $.ajax({
       type: "POST",
-      data: {instance:uuid},
+      data: {instance:uuid, extra:"showMsg"},
       url: "act.php",
-      success: function(data, textStatus) {
-          console.log(data);
-            getData();
+      success: function(data) {
+          infoMsg(data);
+          getData();
       },
   });
 }
@@ -623,18 +660,26 @@ $('#ytForm').submit(function( event ) {
 function ytPlay(url){
       $.ajax({
           url: "act.php?ytUrl=" + encodeURIComponent(url),
-          success: function(){
+          success: function(data) {
+              infoMsg(data);
               getData();
-          },
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+              errorAlert.fire();
+            }
       });
 }
 
 function ytQueue(url){
       $.ajax({
           url: "act.php?ytQueue=" + encodeURIComponent(url),
-          success: function(){
+          success: function(data) {
+              infoMsg(data);
               getData();
-          },
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+              errorAlert.fire();
+            }
       });
 }
 
@@ -656,11 +701,11 @@ const loadingAlert = Swal.mixin({
 })
 
 
-  const InfoAlert = Swal.mixin({
+const InfoMsg = Swal.mixin({
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
-    timer: 3000,
+    timer: 2000,
     timerProgressBar: true,
     onOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -669,8 +714,10 @@ const loadingAlert = Swal.mixin({
   })
 
 
-
-//  InfoAlert.fire({
-  //  icon: 'success',
-  //  title: 'Signed in successfully'
-//  })
+function infoMsg(response){
+  var data = JSON.parse(response);
+  InfoMsg.fire({
+      icon: data.status,
+      title: data.message
+    })
+}

@@ -1,11 +1,5 @@
 {
     "require": {
         "google/apiclient": "~2.0"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://git.andreasfink.xyz/Andreas/sinusbot-api-php"
-        }
-    ]
+    }
 }
