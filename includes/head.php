@@ -11,6 +11,7 @@
       <link rel="stylesheet" href="./src/css/datatables.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
       <link rel="stylesheet" href="./src/css/main.css">
+      <meta charset="utf-8">
       <!-- SEO META TAG -->
       <meta name="author" content="Play-Public">
       <meta name="publisher" content="sysLUL">
