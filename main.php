@@ -14,4 +14,6 @@ $instancerunning = $instance->isRunning();
 $instanceplaying = $instance->isPlaying();
 $instancevolume = $instance->getVolume();
 $instancecurrent = $instance->getCurrentTrack();
- ?>
+
+
+?>
