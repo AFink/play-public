@@ -11,3 +11,13 @@
       <link rel="stylesheet" href="./src/css/datatables.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
       <link rel="stylesheet" href="./src/css/main.css">
+      <!-- SEO META TAG -->
+      <meta name="author" content="Play-Public">
+      <meta name="publisher" content="sysLUL">
+      <meta name="copyright" content="Andreas Fink">
+      <meta name="description" content="Richte öffentlich ein Zugang zur Sinusbot Instanz ein.">
+      <meta name="page-topic" content="Forschung Technik">
+      <meta name="page-type" content="Software Download">
+      <meta name="audience" content="Alle"><meta http-equiv="content-language" content="de">
+      <meta name="robots" content="index, follow">
+      <meta property="og:image" content="https://static.syslul.de/img/sysLUL_Logo.png" />
