@@ -67,11 +67,11 @@
     },
     {
       "n": "reyFM.de #mashup",
-      "g": "24/7 der total durchmix von Liedern"
+      "g": "24/7 der total durchmix von Liedern",
       "u": "https://listen.reyfm.de/mashup_320kbps.mp3"
     }
-  ]
-  "update" [
+  ],
+  "update": [
     {
       "last": "19.04.2020 - 21:32",
       "autor": "Johannes K."
