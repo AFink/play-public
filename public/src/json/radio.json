@@ -2,8 +2,79 @@
   "e": [
     {
       "n": "ILoveRadio",
-      "g": "desc",
+      "g": "",
       "u": "https://streams.ilovemusic.de/iloveradio1.mp3"
+    }
+    {
+      "n": "reyFM.de #Original",
+      "g": "Der Mainstream von reyFM",
+      "u": "https://listen.reyfm.de/original_320kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #Nightlife",
+      "g": "Für die Nachteulen von euch",
+      "u": "https://listen.reyfm.de/nightlife_320kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #Raproyal"
+      "g": "24/7 Deutscher RAP"
+      "u": "https://listen.reyfm.de/raproyal_320kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #USRAP",
+      "g": "24/7 Amerekanischer Underground RAP",
+      "u": "https://listen.reyfm.de/usrap_320kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #Hitsonly",
+      "g": "24/7 Chartshit",
+      "u": "https://listen.reyfm.de/hitsonly_320kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #Haming",
+      "g": "24/7 die perfekte Musik für Zocken",
+      "u": "https://listen.reyfm.de/gaming_320kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #Houseparty",
+      "g": "24/7 bebt das Haus",
+      "u": "https://listen.reyfm.de/houseparty_320kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #Chillout",
+      "g": "24/7 entspannung pure",
+      "u": "https://listen.reyfm.de/chillout_320kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #Exclusive",
+      "g": "24/7 nur exklusive Lieder",
+      "u": "https://listen.reyfm.de/exclusive_320kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #Dancehall",
+      "g": "24/7 120BPM Tanzmusik",
+      "u": "https://listen.reyfm.de/dancehall_320kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #SummerJam",
+      "g": "24/7 immer den Sommer spühren",
+      "u": "https://listen.reyfm.de/summerjam_64kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #oldschool",
+      "g": "24/7 die alte Zeiten spühren",
+      "u": "https://listen.reyfm.de/oldschool_320kbps.mp3"
+    }
+    {
+      "n": "reyFM.de #mashup",
+      "g": "24/7 der total durchmix von Liedern"
+      "u": "https://listen.reyfm.de/mashup_320kbps.mp3"
+    }
+  ]
+  "update" [
+    {
+      "last": "19.04.2020 - 21:32",
+      "autor": "Johannes K."
     }
   ]
 }
