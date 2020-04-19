@@ -19,6 +19,16 @@ include("../includes/head.php");
                 <li id="youtube" onclick="showYoutube()"><a>Youtube</a></li>
                 <li id="radio" onclick="showRadio()"><a>Radio Stations</a></li>
             </ul>
+            <ul id="playlists" class="list-unstyled components">
+            </ul>
+                <ul class="list-unstyled CTAs">
+                    <li>
+                        <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                    </li>
+                    <li>
+                        <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                    </li>
+                </ul>
         </nav>
 
         <!-- Page Content  -->
