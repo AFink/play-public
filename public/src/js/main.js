@@ -96,7 +96,7 @@ function makeSlider() {
               url: "act.php?action=changeVolume&volume=" + value,
               success: function(data) {
                   infoMsg(data);
-                  console.log(data);
+
                   getData();
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -408,7 +408,6 @@ function updateValues() {
     requestAnimationFrame(updateValues);
 }
 function getData() {
-  console.log("did");
     $.ajax({
         type: "GET",
         url: "act.php?action=getData",
@@ -570,7 +569,7 @@ function chooseInstance(uuid){
   $("#" + uuid).addClass("active");
   $.ajax({
       type: "POST",
-      data: {instance:uuid, extra:"showMsg"},
+      data: {instance:uuid, extra: "showMsg"},
       url: "act.php",
       success: function(data) {
           infoMsg(data);

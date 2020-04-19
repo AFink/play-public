@@ -38,16 +38,24 @@
  *  for config.php
  */
 
+function makeSinusbot(){
+  global $sinusbot;
+  $sinusbot = new SinusBot\API(_SINUSURL);
+  $sinusbot->login(_USERNAME, _PASSWORD);
+}
+
+
 function selectInstance(){
   global $instanceUUID;
+  global $sinusbot;
     if (isset($_POST['instance'])) {
-      var_dump($_POST['instance']);
       if(in_array($_POST['instance'],_INSTANCEUUIDS)){
         $instanceUUID = $_POST['instance'];
         $_SESSION['instance'] = $instanceUUID;
         if (isset($_POST["extra"])) {
-          if ($POST_["extra"] == "showMsg") {
-            echo(json_encode(array("status" => "success", "message" => "New Instance selected")));
+          if ($_POST["extra"] == "showMsg") {
+
+            echo(json_encode(array("status" => "success", "message" => "Instance \"" . $sinusbot->getInstanceByUUID($instanceUUID)->getNick() ."\" selected")));
           }
         }
       }else if (isset($_SESSION['instance'])){
@@ -60,6 +68,7 @@ function selectInstance(){
     } else {
       $instanceUUID = _INSTANCEUUIDS[0];
     }
+    return $instanceUUID;
 }
 
 function makeGoogle(){
@@ -101,7 +110,7 @@ function getInstanceList(){
   foreach (_INSTANCEUUIDS as $uuid) {
     $instance = $sinusbot->getInstanceByUUID($uuid);
     $nick = $instance->getNick(); ?>
-    <li class="d-inline-block d-md-none"><a class="nav-link" id="<?php echo($uuid) ?>" onclick="chooseInstance('<?php echo($uuid) ?>')"><?php echo($nick) ?></a></li>
+    <li class="d-inline-block"><a class="nav-link" id="<?php echo($uuid) ?>" onclick="chooseInstance('<?php echo($uuid) ?>')"><?php echo($nick) ?></a></li>
     <?php
   }
 }

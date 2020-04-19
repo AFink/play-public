@@ -5,11 +5,10 @@ require_once 'includes/functions.php';
 require_once 'config.php';
 session_start();
 
-selectInstance();
+makeSinusbot();
 
-$sinusbot = new SinusBot\API(_SINUSURL);
-$sinusbot->login(_USERNAME, _PASSWORD);
-$instance = $sinusbot->getInstanceByUUID($instanceUUID);
+
+$instance = $sinusbot->getInstanceByUUID(selectInstance());
 $instancenick = $instance->getNick();
 $instancerunning = $instance->isRunning();
 $instanceplaying = $instance->isPlaying();

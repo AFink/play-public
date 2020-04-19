@@ -43,9 +43,9 @@ include("../includes/head.php");
                         <tr>
                             <th></th>
                             <th>ID</th>
-                            <th>Titel</th>
-                            <th>Länge</th>
-                            <th>Autor</th>
+                            <th>Title</th>
+                            <th>Duration</th>
+                            <th>Artist</th>
                             <th>Album</th>
                         </tr>
                     </thead>
@@ -106,9 +106,9 @@ include("../includes/head.php");
                     </div>
                     <div class="row" style="height:60px;">
                         <div class="col-sm-5 trackinfo ml-auto d-none d-sm-block">
-                            <img id="thumbnail" src="https://sinusbot.andreasfink.xyz/cache/494f6374694406252b000b4671071eeb2001480e918fbb439a3e3390247cf92f.jpg">
-                            <h3 id="title" class="tracktitle">#GHOST by Yuki schudt</h3>
-                            <h4 id="artist" class="trackartist">yuki-chan Kudo</h4>
+                            <img id="thumbnail" src="">
+                            <h3 id="title" class="tracktitle"></h3>
+                            <h4 id="artist" class="trackartist"></h4>
                         </div>
                         <div class="col-sm-3 controls">
                             <table class="responsive foot-controls">
@@ -157,7 +157,7 @@ include("../includes/head.php");
                         </div>
                         <div class="col-sm-3 ml-auto d-none d-sm-block">
                             <div class="slider">
-                                <input type="range" min="0" max="100" step="5" value="35" data-rangeslider="" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
+                                <input type="range" min="0" max="100" step="1" value="0" data-rangeslider="" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;">
                             </div>
                         </div>
                         <div class="col-sm-1 ml-auto d-none d-sm-block time">
