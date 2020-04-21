@@ -4,7 +4,7 @@ steps:
 - name: get git submodules
   image: alpine/git
   commands:
-  - git submodule update --recursive --remote
+  - git clone https://git.syslul.de/sysLUL/Sinusbot-API-PHP.git sinusbot-api-php
 - name: composer
   image: composer
   commands:
