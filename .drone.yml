@@ -1,0 +1,36 @@
+kind: pipeline
+name: latest
+steps:
+- name: get git submodules
+  image: alpine/git
+  commands:
+  - git submodule update --recursive --remote
+- name: composer
+  image: composer
+  commands:
+  - composer install
+- name: deploy
+  image: cschlosser/drone-ftps
+  environment:
+    FTP_USERNAME:
+      from_secret: ftp_username
+    FTP_PASSWORD:
+      from_secret: ftp_password
+    PLUGIN_HOSTNAME: webhost.syslul.de
+    PLUGIN_DEST_DIR: /www/syslul.de/beta/
+    PLUGIN_SECURE: false
+    PLUGIN_CLEAN_DIR: true
+    PLUGIN_EXCLUDE: ^\.git/$
+- name: discord notification
+  image: appleboy/drone-discord
+  settings:
+      webhook_id:
+        from_secret: discord_id
+      webhook_token:
+        from_secret: discord_token
+      message: >
+        {{#success build.status}}
+          Build {{build.number}} from {{repo.name}} succeeded. Good job. ({{build.link}})
+        {{else}}
+          Build {{build.number}} from {{repo.name}} failed. Fix me please. ({{build.link}})
+        {{/success}}
