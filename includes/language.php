@@ -95,6 +95,11 @@ class Language {
       return $current_lang;
   }
 
+  public function getUserLangCode(){
+    return $this->$UserLng;
+  }
+
+
   public function userLanguage(){
       return $this->lang;
   }

@@ -25,7 +25,7 @@ try {
   $language = New Language();
   $lang =  $language->userLanguage();
 } catch (\Exception $e) {
-  echo $e;
+  echo "Error while loading language";
   exit();
 }
 

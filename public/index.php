@@ -12,19 +12,19 @@ include("../includes/head.php");
             </div>
 
             <ul class="list-unstyled components">
-                <li id="files" onclick="showFiles()"><a>All Music</a></li>
-                <li id="queue" onclick="showQueue()"><a>Queue<span id="queueLength" class="badge float-right align-middle ml-auto">0</span></a></li>
-                <li id="youtube" onclick="showYoutube()"><a>Youtube</a></li>
-                <li id="radio" onclick="showRadio()"><a>Radio Stations</a></li>
+                <li id="files" onclick="showFiles()"><a><?php echo $lang["sidebar-music"] ?></a></li>
+                <li id="queue" onclick="showQueue()"><a><?php echo $lang["sidebar-queue"] ?><span id="queueLength" class="badge float-right align-middle ml-auto">0</span></a></li>
+                <li id="youtube" onclick="showYoutube()"><a><?php echo $lang["sidebar-youtube"] ?></a></li>
+                <li id="radio" onclick="showRadio()"><a><?php echo $lang["sidebar-radio"] ?></a></li>
             </ul>
             <ul id="playlists" class="list-unstyled components">
             </ul>
                 <ul class="list-unstyled CTAs">
                     <li>
-                        <a href="https://git.syslul.de/sysLUL/play-public" target="_blank" class="download">Download source</a>
+                        <a href="https://git.syslul.de/sysLUL/play-public" target="_blank" class="download"><?php echo $lang["sidebar-download"] ?></a>
                     </li>
                     <li>
-                        <a href="https://git.syslul.de/sysLUL/play-public/src/branch/master/README.md" target="_blank" class="sources">Libaries</a>
+                        <a href="https://git.syslul.de/sysLUL/play-public/src/branch/master/README.md" target="_blank" class="sources"><?php echo $lang["sidebar-libaries"] ?></a>
                     </li>
                 </ul>
         </nav>
@@ -38,12 +38,12 @@ include("../includes/head.php");
                 <table id="filesTable" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Duration</th>
-                            <th>Artist</th>
-                            <th>Album</th>
+                            <th><?php echo $lang["filestable-img"] ?></th>
+                            <th><?php echo $lang["filestable-id"] ?></th>
+                            <th><?php echo $lang["filestable-title"] ?></th>
+                            <th><?php echo $lang["filestable-duration"] ?></th>
+                            <th><?php echo $lang["filestable-artist"] ?></th>
+                            <th><?php echo $lang["filestable-album"] ?></th>
                         </tr>
                     </thead>
                     <tbody class="tbody">
@@ -55,8 +55,8 @@ include("../includes/head.php");
                 <table id="radioTable" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Description</th>
+                            <th><?php echo $lang["radiotable-name"] ?></th>
+                            <th><?php echo $lang["radiotable-desc"] ?></th>
                         </tr>
                     </thead>
                     <tbody class="tbody-radio">
@@ -72,7 +72,7 @@ include("../includes/head.php");
                                 <input id="ytSearch" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
                             </div>
                             <div class="col-auto">
-                                <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                <button class="btn btn-lg btn-success" type="submit"><?php echo $lang["youtube-search"] ?></button>
                             </div>
                         </div>
                     </form>
@@ -80,10 +80,10 @@ include("../includes/head.php");
                         <div class="col-lg-12 my-3">
                             <div class="pull-right">
                                 <button class="btn btn-info" id="list">
-                                    List View
+                                    <?php echo $lang["youtube-listview"] ?>
                                 </button>
                                 <button class="btn btn-danger" id="grid" style="display:none;">
-                                    Grid View
+                                    <?php echo $lang["youtube-gridview"] ?>
                                 </button>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ include("../includes/head.php");
                     <div id="ytResponse" class="row view-group">
 
                     </div>
-                    <button id="loadMore" type="button" class="btn btn-info btn-lg btn-block" onclick="ytMore()" name="button" style="display:none;">Load more</button>
+                    <button id="loadMore" type="button" class="btn btn-info btn-lg btn-block" onclick="ytMore()" name="button" style="display:none;"><?php echo $lang["youtube-loadmore"] ?></button>
                     <br>
                 </div>
             </div>

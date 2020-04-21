@@ -13,10 +13,8 @@ var instanceuuid = ""
 var queueLength = 0
 
 var q = ""
-var alertErrorTitle = "Oops..."
-var alertErrorText = "Ein Fehler ist aufgetreten!"
-
-
+var i = 0
+var i2 = 0
 
 var folder = []
 $('#radioTableDiv').hide();
@@ -27,45 +25,44 @@ $('.dropdown-menu a').click(function(){
 
 
 
-  $('#list').click(function(event){
-    event.preventDefault();
-    $('#ytResponse .item').removeClass('grid-group-item');
-    $('#ytResponse .item').addClass('list-group-item');
-    $('#list').hide();
-    $('#grid').show();
-  });
+$('#list').click(function(event){
+  event.preventDefault();
+  $('#ytResponse .item').removeClass('grid-group-item');
+  $('#ytResponse .item').addClass('list-group-item');
+  $('#list').hide();
+  $('#grid').show();
+});
 
-  $('#grid').click(function(event){
-    event.preventDefault();
-    $('#ytResponse .item').removeClass('list-group-item');
-    $('#ytResponse .item').addClass('grid-group-item');
-    $('#grid').hide();
-    $('#list').show();
-  });
+$('#grid').click(function(event){
+  event.preventDefault();
+  $('#ytResponse .item').removeClass('list-group-item');
+  $('#ytResponse .item').addClass('grid-group-item');
+  $('#grid').hide();
+  $('#list').show();
+});
 
-  $('#sidebarCollapse').click(function(event){
-    sidebarCollapse();
-  });
+$('#sidebarCollapse').click(function(event){
+  sidebarCollapse();
+});
 
-  var sidebar = document.getElementById('sidebar');
-  var sidebarToggler = document.getElementById('sidebarCollapse');
-  document.addEventListener('click', function(event) {
-      if (!sidebar.contains(event.target)) {
-        if (!sidebarToggler.contains(event.target)) {
-          if ($("#content").hasClass("active")) {
-            sidebarCollapse();
-          }
+var sidebar = document.getElementById('sidebar');
+var sidebarToggler = document.getElementById('sidebarCollapse');
+document.addEventListener('click', function(event) {
+    if (!sidebar.contains(event.target)) {
+      if (!sidebarToggler.contains(event.target)) {
+        if ($("#content").hasClass("active")) {
+          sidebarCollapse();
         }
       }
+    }
+});
+
+
+$(document).ready(function () {
+  $("#sidebar").mCustomScrollbar({
+      theme: "minimal"
   });
-
-
-  $(document).ready(function () {
-
-    $("#sidebar").mCustomScrollbar({
-        theme: "minimal"
-    });
-  });
+});
 
 
 
@@ -75,8 +72,7 @@ getData();
 var playerinterval = setInterval(getData, 10000);
 var t = setInterval(updateTimer, 200);
 requestAnimationFrame(updateValues);
-var i = 0;
-var i2 = 0;
+
 
 /**
  * Helpers
@@ -96,7 +92,6 @@ function makeSlider() {
               url: "act.php?action=changeVolume&volume=" + value,
               success: function(data) {
                   infoMsg(data);
-
                   getData();
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -126,9 +121,7 @@ function removeActive(){
   elements.each(function(){
     $(this).removeClass('active');
   });
-
-    $('#search').val("");
-
+  $('#search').val("");
   $('#radioTableDiv').hide();
   $('#youtubeDiv').hide();
   $('#ytSearch').val("");
@@ -153,10 +146,17 @@ function datatable(){
     responsive : {
       details: false
     },
+    "language": {
+    "lengthMenu": datatable-lengthmenu,
+    "zeroRecords": datatable-zerorecords,
+    "info": datatable-info,
+    "infoEmpty": datatable-infoempty,
+    "infoFiltered": datatable-infofiltered
+  },
     columnDefs: [
-        { responsivePriority: 2, targets: 0 },
-        { responsivePriority: 99, targets: 1 },
-        { responsivePriority: 1, targets: 2 }
+        {responsivePriority: 2, targets: 0 },
+        {responsivePriority: 99, targets: 1 },
+        {responsivePriority: 1, targets: 2 }
     ],
     fixedHeader:  false,
       "paging":   false,
@@ -172,8 +172,8 @@ function showFiles(){
   folder.length = 0;
   if (i>0) {
     loadingAlert.fire({
-      title: 'Loading',
-      html: "Die Dateien werden geladen.",
+      title: alert-load-files-title,
+      html: alert-load-files-msg,
     })
   };
   $.ajax({
@@ -217,8 +217,8 @@ function folderBack(){
 }
 function folderAjax(){
   loadingAlert.fire({
-    title: 'Loading',
-    html: "Ordner wird geladen",
+    title: alert-load-folder-title,
+    html: alert-load-folder-msg,
   })
   $.ajax({
       type: "POST",
@@ -239,8 +239,8 @@ function folderAjax(){
 
 function showPlaylist(uuid){
   loadingAlert.fire({
-    title: 'Loading',
-    html: "Playlist wird geladen",
+    title: alert-load-playlist-title,
+    html: alert-load-playlist-msg,
   })
   $.ajax({
       type: "POST",
@@ -264,8 +264,8 @@ function showPlaylist(uuid){
 
 function showQueue(){
   loadingAlert.fire({
-    title: 'Loading',
-    html: "Queue wird geladen",
+    title: alert-load-queue-title,
+    html: alert-load-queue-msg,
   })
   $.ajax({
       type: "POST",
@@ -289,8 +289,8 @@ function showQueue(){
 
 function showRadio(){
   loadingAlert.fire({
-    title: 'Loading',
-    html: "Radios werden geladen",
+    title: alert-load-radio-title,
+    html: alert-load-radio-msg,
   })
   removeActive();
   $("#radio").addClass('active');
@@ -301,6 +301,13 @@ function showRadio(){
     "createdRow": function( row, data, dataIndex ) {
       $(row).attr('onclick','playUrl(\'' + data['u'] +'\')');
   },
+    "language": {
+      "lengthMenu": datatable-lengthmenu,
+      "zeroRecords": datatable-zerorecords,
+      "info": datatable-info,
+      "infoEmpty": datatable-infoempty,
+      "infoFiltered": datatable-infofiltered
+    },
     ajax: {
         url: './src/json/radio.json',
         dataSrc: 'e'
@@ -580,8 +587,8 @@ function chooseInstance(uuid){
 
 function ytSearch(q){
   loadingAlert.fire({
-    title: 'Searching',
-    html: "Youtube wird durchwühlt",
+    title: alert-load-yt-title,
+    html: alert-load-yt-msg,
   })
   $.ajax({
       url: "act.php?action=ytSearch&q=" + encodeURIComponent(q),
@@ -618,8 +625,8 @@ function ytSearch(q){
 function ytMore(){
   if (!($("#loadMore").hasClass("disabled"))) {
     loadingAlert.fire({
-      title: 'Searching',
-      html: "Youtube wird erneut durchwühlt",
+      title: alert-load-ytmore-title,
+      html: alert-load-ytmore-msg,
     })
     $.ajax({
         url: "act.php?action=ytSearch&pageToken=" + encodeURIComponent(nextPageToken) + "&q=" + encodeURIComponent(q),
@@ -711,7 +718,6 @@ const InfoMsg = Swal.mixin({
       toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
   })
-
 
 function infoMsg(response){
   var data = JSON.parse(response);

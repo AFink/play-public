@@ -55,7 +55,7 @@ function selectInstance(){
         if (isset($_POST["extra"])) {
           if ($_POST["extra"] == "showMsg") {
 
-            echo(json_encode(array("status" => "success", "message" => "Instance \"" . $sinusbot->getInstanceByUUID($instanceUUID)->getNick() ."\" selected")));
+            echo(json_encode(array("status" => "success", "message" => $lang["instance-selected1"] . "\"" . $sinusbot->getInstanceByUUID($instanceUUID)->getNick() ."\"" . $lang["instance-selected2"] . ".")));
           }
         }
       }else if (isset($_SESSION['instance'])){
@@ -143,7 +143,7 @@ function displayFilesGrid(){
     <tr>
       <td></td>
       <td></td>
-      <td>nothing found here</td>
+      <td><?php $lang["filestable-nothingfound"] ?></td>
       <td></td>
       <td></td>
       <td></td>
@@ -184,7 +184,7 @@ function displayFolderGrid(){
   <tr>
     <td></td>
     <td></td>
-    <td>nothing found here</td>
+    <td><?php $lang["foldertable-nothingfound"] ?></td>
     <td></td>
     <td></td>
     <td></td>
@@ -214,7 +214,7 @@ function displayPlGrid(){
     <tr>
       <td></td>
       <td></td>
-      <td>nothing found here</td>
+      <td><?php $lang["playlist-nothingfound"] ?></td>
       <td></td>
       <td></td>
       <td></td>
@@ -240,7 +240,7 @@ function displayQueueGrid(){
   <tr>
     <td></td>
     <td></td>
-    <td>nothing found here</td>
+    <td><?php $lang["queue-nothingfound"] ?></td>
     <td></td>
     <td></td>
     <td></td>
@@ -353,8 +353,8 @@ function youtubeSearch($q){
               </p>
               <div class="row">
                   <div class="col-xs-12 col-md-12">
-                      <a id="playBtn" class="btn btn-success" onclick="ytPlay('<?php echo $videourl ?>')">Play</a>
-                      <a id="enqueueBtn" class="btn btn-success" onclick="ytQueue('<?php echo $videourl ?>')">add to queue</a>
+                      <a id="playBtn" class="btn btn-success" onclick="ytPlay('<?php echo $videourl ?>')"><?php echo $lang["youtube-play"] ?></a>
+                      <a id="enqueueBtn" class="btn btn-success" onclick="ytQueue('<?php echo $videourl ?>')"><?php echo $lang["youtube-queue"] ?></a>
                   </div>
               </div>
           </div>
@@ -381,13 +381,13 @@ function handleGoogleExeption($e){
   $reason = $json->error->errors[0]->reason;
   switch ($reason) {
     case 'quotaExceeded':
-      $title = "ERROR: Youtube-API";
-      $message = "Zu viele Requests! Probiere einen anderen API-Key oder versuche es morgen erneut.";
+      $title = $lang["youtube-quotaexeeded-title"];
+      $message = $lang["youtube-quotaexeeded-msg"];
       break;
 
     default:
-      $title = "ERROR: Youtube-API";
-      $message = "error";
+      $title = $lang["youtube-error-title"];
+      $message = $lang["youtube-error-msg"];
       break;
   }
   echo(json_encode(array("status" => "error", "title" => $title, "message" => $message)));
