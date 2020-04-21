@@ -41,7 +41,7 @@ class Language {
       $current_q = 0;
 
       // Nun alle mitgegebenen Sprachen abarbeiten
-      foreach ($accepted_languages as $accepted_language) {
+      foreach ($accepted_languages as $accepted_language=>$accepted_language2) {
         // Alle Infos über diese Sprache rausholen
         $res = preg_match (
           '/^([a-z]{1,8}(?:-[a-z]{1,8})*)(?:;\s*q=(0(?:\.[0-9]{1,3})?|1(?:\.0{1,3})?))?$/i',
