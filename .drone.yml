@@ -17,7 +17,7 @@ steps:
     FTP_PASSWORD:
       from_secret: ftp_password
     PLUGIN_HOSTNAME: webhost.syslul.de
-    PLUGIN_DEST_DIR: /www/syslul.de/beta/
+    PLUGIN_DEST_DIR: /www/awedel.de/beta/
     PLUGIN_SECURE: false
     PLUGIN_CLEAN_DIR: true
     PLUGIN_EXCLUDE: ^\.git/$
