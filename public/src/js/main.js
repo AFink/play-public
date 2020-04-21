@@ -147,11 +147,11 @@ function datatable(){
       details: false
     },
     "language": {
-    "lengthMenu": datatable-lengthmenu,
-    "zeroRecords": datatable-zerorecords,
-    "info": datatable-info,
-    "infoEmpty": datatable-infoempty,
-    "infoFiltered": datatable-infofiltered
+    "lengthMenu": datatable_lengthmenu,
+    "zeroRecords": datatable_zerorecords,
+    "info": datatable_info,
+    "infoEmpty": datatable_infoempty,
+    "infoFiltered": datatable_infofiltered
   },
     columnDefs: [
         {responsivePriority: 2, targets: 0 },
@@ -172,8 +172,8 @@ function showFiles(){
   folder.length = 0;
   if (i>0) {
     loadingAlert.fire({
-      title: alert-load-files-title,
-      html: alert-load-files-msg,
+      title: alert_load_files_title,
+      html: alert_load_files_msg,
     })
   };
   $.ajax({
@@ -217,8 +217,8 @@ function folderBack(){
 }
 function folderAjax(){
   loadingAlert.fire({
-    title: alert-load-folder-title,
-    html: alert-load-folder-msg,
+    title: alert_load_folder_title,
+    html: alert_load_folder_msg,
   })
   $.ajax({
       type: "POST",
@@ -239,8 +239,8 @@ function folderAjax(){
 
 function showPlaylist(uuid){
   loadingAlert.fire({
-    title: alert-load-playlist-title,
-    html: alert-load-playlist-msg,
+    title: alert_load_playlist_title,
+    html: alert_load_playlist_msg,
   })
   $.ajax({
       type: "POST",
@@ -264,8 +264,8 @@ function showPlaylist(uuid){
 
 function showQueue(){
   loadingAlert.fire({
-    title: alert-load-queue-title,
-    html: alert-load-queue-msg,
+    title: alert_load_queue_title,
+    html: alert_load_queue_msg,
   })
   $.ajax({
       type: "POST",
@@ -289,8 +289,8 @@ function showQueue(){
 
 function showRadio(){
   loadingAlert.fire({
-    title: alert-load-radio-title,
-    html: alert-load-radio-msg,
+    title: alert_load_radio_title,
+    html: alert_load_radio_msg,
   })
   removeActive();
   $("#radio").addClass('active');
@@ -302,11 +302,11 @@ function showRadio(){
       $(row).attr('onclick','playUrl(\'' + data['u'] +'\')');
   },
     "language": {
-      "lengthMenu": datatable-lengthmenu,
-      "zeroRecords": datatable-zerorecords,
-      "info": datatable-info,
-      "infoEmpty": datatable-infoempty,
-      "infoFiltered": datatable-infofiltered
+      "lengthMenu": datatable_lengthmenu,
+      "zeroRecords": datatable_zerorecords,
+      "info": datatable_info,
+      "infoEmpty": datatable_infoempty,
+      "infoFiltered": datatable_infofiltered
     },
     ajax: {
         url: './src/json/radio.json',
@@ -587,8 +587,8 @@ function chooseInstance(uuid){
 
 function ytSearch(q){
   loadingAlert.fire({
-    title: alert-load-yt-title,
-    html: alert-load-yt-msg,
+    title: alert_load_yt_title,
+    html: alert_load_yt_msg,
   })
   $.ajax({
       url: "act.php?action=ytSearch&q=" + encodeURIComponent(q),
@@ -625,8 +625,8 @@ function ytSearch(q){
 function ytMore(){
   if (!($("#loadMore").hasClass("disabled"))) {
     loadingAlert.fire({
-      title: alert-load-ytmore-title,
-      html: alert-load-ytmore-msg,
+      title: alert_load_ytmore_title,
+      html: alert_load_ytmore_msg,
     })
     $.ajax({
         url: "act.php?action=ytSearch&pageToken=" + encodeURIComponent(nextPageToken) + "&q=" + encodeURIComponent(q),
