@@ -16,7 +16,7 @@
                 </ul>
                 <form action="javascript:void(0)"class="form-inline ml-auto d-none d-sm-flex">
                   <?php if($search): ?>
-                    <input type="text" id="search" class="form-control mr-sm-2" placeholder="Search">
+                    <input type="text" id="search" class="form-control mr-sm-2" placeholder="<?php echo $lang["navbar-search"] ?>">
                   <?php endif; ?>
                   <button id="running" type="button" style="height:38px;opacity: 1;margin-right: .5rem!important;"class="btn btn-<?php if($instancerunning){echo "success";} else{echo "danger";} ?>" data-placement="bottom">
                       <svg class="bi bi-power" width="15px" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.578 4.437a5 5 0 104.922.044l.5-.866a6 6 0 11-5.908-.053l.486.875z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z" clip-rule="evenodd"/></svg>
