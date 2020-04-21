@@ -5,7 +5,7 @@
       <meta http-equiv="cache-control" content="no-cache" />
       <meta http-equiv="Pragma" content="no-cache" />
       <meta http-equiv="Expires" content="-1" />
-      <link rel="stylesheet" href=".src/css/bootstrap.min.css">
+      <link rel="stylesheet" href="./src/css/bootstrap.min.css">
       <link rel="stylesheet" href="./src/css/rangeslider.css">
       <link rel="stylesheet" href="./src/css/sweetalert2.min.css">
       <link rel="stylesheet" href="./src/css/datatables.min.css">
