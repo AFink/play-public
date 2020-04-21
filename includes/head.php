@@ -22,7 +22,7 @@
       <meta name="page-topic" content="Forschung Technik">
       <meta name="page-type" content="Software Download">
       <meta name="audience" content="Alle">
-      <meta http-equiv="content-language" content="<?php echo $language->getUserLangCode() ?>">
+      <meta http-equiv="content-language" content="de">
       <meta name="robots" content="index, follow">
       <meta property="og:image" content="./src/img/Logo.png" />
 
