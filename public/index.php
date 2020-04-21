@@ -4,8 +4,6 @@ $currentPage = 'Home';
 include_once("../main.php");
 include("../includes/head.php");
 ?>
-
-
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -23,10 +21,10 @@ include("../includes/head.php");
             </ul>
                 <ul class="list-unstyled CTAs">
                     <li>
-                        <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                        <a href="https://git.syslul.de/sysLUL/play-public" target="_blank" class="download">Download source</a>
                     </li>
                     <li>
-                        <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                        <a href="https://git.syslul.de/sysLUL/play-public/src/branch/master/README.md" target="_blank" class="sources">Libaries</a>
                     </li>
                 </ul>
         </nav>
@@ -160,7 +158,7 @@ include("../includes/head.php");
                             </div>
                         </div>
                         <div class="col-sm-1 ml-auto d-none d-sm-block time">
-                            <span id="position">4:18</span>
+                            <span id="position">0:00</span>
                         </div>
                     </div>
                     <div class="bottom-gap"></div>

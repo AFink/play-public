@@ -1,5 +1,5 @@
-<?php include_once("../main.php");?>
-<?php
+<?php require_once("../main.php");
+
 $uuid = $instancecurrent->getUUID();
 
 if (isset($_GET['action'])) {
@@ -131,7 +131,6 @@ if (isset($_GET['ytQueue'])) {
     }
 }
 
-
 if (isset($_GET['ytUrl'])) {
   if ($instance->ytPlay($_GET['ytUrl'])[0]["success"]) {
     echo(json_encode(array("status" => "success", "message" => "Video will be played soon")));
@@ -178,7 +177,4 @@ if(isset($_POST['view'])){
       break;
   }
 }
-
-
-
 ?>

@@ -79,6 +79,9 @@ function makeGoogle(){
   $youtube = new Google_Service_YouTube($googleClient);
 }
 
+
+
+
 /**
  *  for includes/navbar.php
  */
@@ -114,6 +117,8 @@ function getInstanceList(){
     <?php
   }
 }
+
+
 /**
  *  for public/act.php
  */
@@ -246,8 +251,6 @@ function displayQueueGrid(){
 
 }
 
-
-
 function displayPlaylists(){
   global $sinusbot;
 
@@ -309,7 +312,6 @@ function getData(){
     return json_encode($out);
 
   };    //enable this function
-
 
 function youtubeSearch($q){
   // Define an object that will be used to make all API requests.
@@ -384,6 +386,7 @@ function handleGoogleExeption($e){
       break;
 
     default:
+      $title = "ERROR: Youtube-API";
       $message = "error";
       break;
   }

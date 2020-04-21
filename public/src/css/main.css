@@ -148,8 +148,8 @@ a.download {
     color: #6c46b1;
 }
 
-a.article,
-a.article:hover {
+a.sources,
+a.sources:hover {
     background: #6c46b1 !important;
     color: #fff !important;
 }
