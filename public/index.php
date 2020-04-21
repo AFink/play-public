@@ -8,7 +8,7 @@ include("../includes/head.php");
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Public-Instance-Webinterface</h3>
+                <h3><?php echo $lang["sidebar-header"] ?></h3>
             </div>
 
             <ul class="list-unstyled components">

@@ -1,6 +1,4 @@
 <?php
-
-
 class Language {
 
   private $UserLng;
@@ -9,8 +7,12 @@ class Language {
 
 
   public function __construct(){
-
-      $this->UserLng = $this->detectLang(_LANGS, 'en', null, false);
+      if (isset($_GET["lang"])) {
+        $lang = $_GET["lang"];
+      } else {
+        $lang = null;
+      }
+      $this->UserLng = $this->detectLang(_LANGS, 'de', $lang, false);
       //construct lang file
       $langFile = '../langs/'. $this->UserLng . '.ini';
       if(!file_exists($langFile)){
@@ -19,7 +21,6 @@ class Language {
 
       $this->lang = parse_ini_file($langFile);
   }
-
 
   private function detectLang($allowed_languages, $default_language, $lang_variable = null, $strict_mode = true) {
       // $_SERVER['HTTP_ACCEPT_LANGUAGE'] verwenden, wenn keine Sprachvariable mitgegeben wurde
@@ -99,9 +100,4 @@ class Language {
   }
 
 }
-
-
-
-
-
  ?>

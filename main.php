@@ -24,7 +24,6 @@ try {
   require_once 'includes/language.php';
   $language = New Language();
   $lang =  $language->userLanguage();
-  var_dump($lang);
 } catch (\Exception $e) {
   echo $e;
   exit();
