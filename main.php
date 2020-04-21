@@ -20,6 +20,15 @@ try {
   echo "You need to copy the config.php.example to config.php and edit it to work.";
   exit();
 }
+try {
+  require_once 'includes/language.php';
+  $language = New Language();
+  $lang =  $language->userLanguage();
+  var_dump($lang);
+} catch (\Exception $e) {
+  echo $e;
+  exit();
+}
 
 
 session_start();

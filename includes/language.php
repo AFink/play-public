@@ -12,9 +12,9 @@ class Language {
 
       $this->UserLng = $this->detectLang(_LANGS, 'en', null, false);
       //construct lang file
-    //  $langFile = '../langs/'. $this->UserLng . '.ini';
+      $langFile = '../langs/'. $this->UserLng . '.ini';
       if(!file_exists($langFile)){
-          throw new Execption("Language could not be loaded"); //or default to a language
+        throw new Execption("Language could not be loaded"); //or default to a language
       }
 
       $this->lang = parse_ini_file($langFile);
