@@ -1,4 +1,5 @@
-<?php require_once("../main.php");
+<?php
+require_once("../main.php");
 
 $uuid = $instancecurrent->getUUID();
 
