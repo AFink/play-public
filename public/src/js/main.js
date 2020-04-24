@@ -480,17 +480,11 @@ if(running){
 
   $("#navbarToBeToggled > ul > li > a").removeClass("active");
   $("#" + instanceuuid).addClass("active");
-<<<<<<< HEAD
 
-
-
-=======
-  
   
   console.log(volume);
   $("input[type=range]").val(volume).change();
   
->>>>>>> 458c45aeb2c3ed4d4eaada95232c401dfb9c0757
 }
 /**
  *  Playbar
