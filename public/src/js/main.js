@@ -23,7 +23,7 @@ $('.dropdown-menu a').click(function(){
   $('.dropdown-toggle').html($(this).html());
 })
 
-
+  var $rangeslider = $('input[type=range]');
 
 $('#list').click(function(event){
   event.preventDefault();
@@ -83,23 +83,24 @@ function millisToMinutesAndSeconds(millis) {
   return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 function makeSlider() {
-    var selector = '[data-rangeSlider]',
-        sliders = document.querySelectorAll(selector);
-    rangeSlider.create(sliders, {
-        onInit: function () { },
-        onSlideEnd: function (value, percent, position) {
-          $.ajax({
-              url: "act.php?action=changeVolume&volume=" + value,
-              success: function(data) {
-                  infoMsg(data);
-                  getData();
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                  errorAlert.fire();
-                }
-          });
-        }
-    });
+
+$rangeslider
+  .rangeslider({
+    polyfill: false,
+    onInit: function () { },
+    onSlideEnd: function (value, percent, position) {
+      $.ajax({
+          url: "act.php?action=changeVolume&volume=" + value,
+          success: function(data) {
+              infoMsg(data);
+              getData();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+              errorAlert.fire();
+            }
+      });
+    }
+  })
 
 
 }
@@ -481,10 +482,10 @@ if(running){
   $("#navbarToBeToggled > ul > li > a").removeClass("active");
   $("#" + instanceuuid).addClass("active");
 
-  
+
   console.log(volume);
-  $("input[type=range]").val(volume).change();
-  
+  $rangeslider.val(volume).change();
+
 }
 /**
  *  Playbar
