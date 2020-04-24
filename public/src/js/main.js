@@ -8,7 +8,7 @@ var shuffle = ""
 var repeat = ""
 var playing = ""
 var running = ""
-var volume = ""
+var volume = 0
 var instanceuuid = ""
 var queueLength = 0
 
@@ -480,6 +480,9 @@ if(running){
 
   $("#navbarToBeToggled > ul > li > a").removeClass("active");
   $("#" + instanceuuid).addClass("active");
+
+
+
 }
 /**
  *  Playbar
