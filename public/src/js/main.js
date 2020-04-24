@@ -86,7 +86,7 @@ function makeSlider() {
 
 $rangeslider
   .rangeslider({
-    polyfill: false,
+    polyfill: true,
     onInit: function () { },
     onSlideEnd: function (value, percent, position) {
       $.ajax({
