@@ -11,6 +11,7 @@
       <link rel="stylesheet" href="./src/css/datatables.min.css">
       <link rel="stylesheet" href="./src/css/mCustomScrollbar.min.css">
       <link rel="stylesheet" href="./src/css/main.css">
+      <link rel="stylesheet" href="./src/css/dark-mode.css">
       <meta charset="utf-8">
       <title><?php echo $lang["head-title"] ?></title>
       <link rel="shortcut icon" type="image/x-icon" href="./src/img/favicon.ico">
