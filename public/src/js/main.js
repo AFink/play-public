@@ -146,13 +146,6 @@ function datatable(){
     responsive : {
       details: false
     },
-    "language": {
-    "lengthMenu": datatable_lengthmenu,
-    "zeroRecords": datatable_zerorecords,
-    "info": datatable_info,
-    "infoEmpty": datatable_infoempty,
-    "infoFiltered": datatable_infofiltered
-  },
     columnDefs: [
         {responsivePriority: 2, targets: 0 },
         {responsivePriority: 99, targets: 1 },
@@ -164,7 +157,7 @@ function datatable(){
   });
   $('#filesTable_wrapper > div:nth-child(1)').hide();
   $('#search').keyup(function(){
-    filesTable.search($(this).val()).draw() ;
+    filesTable.search($(this).val()).draw();
   })
 }
 
