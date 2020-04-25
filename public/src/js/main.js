@@ -146,6 +146,10 @@ function datatable(){
     responsive : {
       details: false
     },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 63294a5056a220d154f9b9ac0bb488ca92946330
     columnDefs: [
         {responsivePriority: 2, targets: 0 },
         {responsivePriority: 99, targets: 1 },
