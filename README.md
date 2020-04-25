@@ -1,7 +1,7 @@
 # play-public
 
 
-## Quelle
+## Sources
 https://github.com/andreruffert/rangeslider.js (MIT)
 
 https://jquery.com/
@@ -18,4 +18,5 @@ https://datatables.net/
 
 https://bootsnipp.com/snippets/M515A
 
-https://git.syslul.de/Github-Mirror/Sinusbot-API-PHP
+https://git.syslul.de/sysLUL/Sinusbot-API-PHP, Fork of https://github.com/SinusBot/api-php
+
