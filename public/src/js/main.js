@@ -23,7 +23,6 @@ $('.dropdown-menu a').click(function(){
   $('.dropdown-toggle').html($(this).html());
 })
 
-  var $rangeslider = $('input[type=range]');
 
 $('#list').click(function(event){
   event.preventDefault();
@@ -83,25 +82,25 @@ function millisToMinutesAndSeconds(millis) {
   return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
 function makeSlider() {
-
-$rangeslider
-  .rangeslider({
-    polyfill: true,
-    onInit: function () { },
-    onSlideEnd: function (value, percent, position) {
-      $.ajax({
-          url: "act.php?action=changeVolume&volume=" + value,
-          success: function(data) {
-              infoMsg(data);
-              getData();
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-              errorAlert.fire();
-            }
-      });
-    }
-  })
-
+  $('input[type="range"]').rangeslider({
+       polyfill: false,
+       onInit: function() {
+         },
+        onSlide: function(position, value) {
+         },
+       onSlideEnd: function (value, percent, position) {
+         $.ajax({
+             url: "act.php?action=changeVolume&volume=" + percent,
+             success: function(data) {
+                 infoMsg(data);
+                 getData();
+               },
+             error: function (xhr, ajaxOptions, thrownError) {
+               errorAlert.fire();
+             }
+         });
+       }
+     })
 
 }
 /**
@@ -482,9 +481,7 @@ if(running){
   $("#navbarToBeToggled > ul > li > a").removeClass("active");
   $("#" + instanceuuid).addClass("active");
 
-
-  console.log(volume);
-  $rangeslider.val(volume).change();
+  $("input[type=range]").val(volume).change();
 
 }
 /**
