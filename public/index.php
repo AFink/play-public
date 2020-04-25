@@ -176,9 +176,6 @@ include("../includes/head.php");
 
 
     <?php include("../includes/footer.php") ?>
-    <script type="text/javascript">
-        showFiles();
-    </script>
   </body>
 
 </html>
