@@ -142,7 +142,7 @@ function getPlaylists(){
  *  table-action - ALL have alerts, but no Variables
  */
 function datatable(){
-  filesTable = $('#filesTable').DataTable({
+  var filesTable = $('#filesTable').DataTable({
     responsive : {
       details: false
     },
@@ -297,7 +297,7 @@ function showRadio(){
   $('#filesTable').hide();
   $('#radioTableDiv').show();
   if(i2 == 0){
-  radioTable = $('#radioTable').DataTable( {
+  var radioTable = $('#radioTable').DataTable( {
     "createdRow": function( row, data, dataIndex ) {
       $(row).attr('onclick','playUrl(\'' + data['u'] +'\')');
   },
