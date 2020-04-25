@@ -12,6 +12,8 @@ var volume = 0
 var instanceuuid = ""
 var queueLength = 0
 
+var filesTable = null;
+
 var q = ""
 var i = 0
 var i2 = 0
@@ -63,8 +65,7 @@ $(document).ready(function () {
   });
 });
 
-
-
+showFiles();
 makeSlider();
 getPlaylists();
 getData();
@@ -142,14 +143,17 @@ function getPlaylists(){
  *  table-action - ALL have alerts, but no Variables
  */
 function datatable(){
-  var filesTable = $('#filesTable').DataTable({
+  filesTable = $('#filesTable').DataTable({
     responsive : {
       details: false
     },
-<<<<<<< HEAD
-=======
-
->>>>>>> 63294a5056a220d154f9b9ac0bb488ca92946330
+    "language": {
+      "lengthMenu": datatable_lengthmenu,
+      "zeroRecords": datatable_zerorecords,
+      "info": datatable_info,
+      "infoEmpty": datatable_infoempty,
+      "infoFiltered": datatable_infofiltered
+    },
     columnDefs: [
         {responsivePriority: 2, targets: 0 },
         {responsivePriority: 99, targets: 1 },
