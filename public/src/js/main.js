@@ -47,6 +47,12 @@ $('#sidebarCollapse').click(function(event){
   sidebarCollapse();
 });
 
+$('#ytForm').submit(function(event) {
+ q = $('#ytSearch').val();
+ ytSearch(q);
+});
+
+
 var sidebar = document.getElementById('sidebar');
 var sidebarToggler = document.getElementById('sidebarCollapse');
 document.addEventListener('click', function(event) {
@@ -64,25 +70,23 @@ $(document).ready(function () {
   $("#sidebar").mCustomScrollbar({
       theme: "minimal"
   });
-
 });
-
 
 $('.darkmode-toggle').click(function(){
   toggleDarkmode();
 })
 
 function isInDarkmode() {
+  var cookie = getCookie(darkmode);
+  if (cookie != null){
+    return cookie;
+  }
  if (window.matchMedia) {
    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
      return true;
    } else {
      return false;
    }
- }
- var cookie = getCookie(darkmode);
- if (cookie != null){
-   setDarkmode(cookie);
  }
  return false;
 }
@@ -145,9 +149,6 @@ requestAnimationFrame(updateValues);
  function eraseCookie(name) {
      document.cookie = name+'=; Max-Age=-99999999;';
  }
-
-
-
 
 function millisToMinutesAndSeconds(millis) {
   var minutes = Math.floor(millis / 60000);
@@ -510,7 +511,6 @@ function getData() {
         },
     });
 }
-
 function setData(){
   $('#title').html(title);
   $('#artist').html(artist);
@@ -573,7 +573,6 @@ function play(){
     playing = true;
     position = 0;
 }
-
 function stop() {
   $.ajax({
     url: "act.php?action=stop",
@@ -728,17 +727,6 @@ function ytMore(){
 
 }
 
-
-
-
-$('#ytForm').submit(function( event ) {
- q = $('#ytSearch').val();
- ytSearch(q);
-});
-
-
-
-
 function ytPlay(url){
       $.ajax({
           url: "act.php?ytUrl=" + encodeURIComponent(url),
@@ -764,8 +752,6 @@ function ytQueue(url){
             }
       });
 }
-
-
 
 const errorAlert = Swal.mixin({
   icon: 'error',
