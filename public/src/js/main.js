@@ -65,6 +65,10 @@ $(document).ready(function () {
   });
 });
 
+
+  new Darkmode().showWidget();
+
+
 showFiles();
 makeSlider();
 getPlaylists();

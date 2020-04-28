@@ -20,3 +20,5 @@ https://bootsnipp.com/snippets/M515A
 
 https://git.syslul.de/sysLUL/Sinusbot-API-PHP, Fork of https://github.com/SinusBot/api-php
 
+
+https://darkmodejs.learn.uno/
