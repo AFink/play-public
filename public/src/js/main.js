@@ -14,6 +14,8 @@ var queueLength = 0
 
 var filesTable = null;
 
+var darkmode = false;
+
 var q = ""
 var i = 0
 var i2 = 0
@@ -21,7 +23,7 @@ var i2 = 0
 var folder = []
 $('#radioTableDiv').hide();
 
-$('.dropdown-menu a').click(function(){
+$('.dropdown-menu a').click(function(event){
   $('.dropdown-toggle').html($(this).html());
 })
 
@@ -63,38 +65,25 @@ $(document).ready(function () {
   $("#sidebar").mCustomScrollbar({
       theme: "minimal"
   });
+  checkDarkmode();
 });
 
-
-var options = {
-  bottom: '70px', // default: '32px'
-  right: '5px', // default: '32px'
-  left: 'unset', // default: 'unset'
-  time: '0.5s', // default: '0.3s'
-  mixColor: '#fff', // default: '#fff'
-  backgroundColor: '#fff',  // default: '#fff'
-  buttonColorDark: '#100f2c',  // default: '#100f2c'
-  buttonColorLight: '#fff', // default: '#fff'
-  saveInCookies: true, // default: true,
-  label: '🌓', // default: ''
-  autoMatchOsTheme: true // default: true
-}
-
-
-document.getElementById('toggle').addEventListener('click', () => {
-  document.getElementById('blender').classList.toggle('expand');
-  document.getElementById('toggle').classList.toggle('s-module--hasZIndex--1QkpC');
-});
 
 $('.darkmode-toggle').click(function(){
-  if($(this).hasClass("darkmode-toggle--light")){
-    $(this).removeClass("darkmode-toggle--light");
-  }else {
-    $(this).addClass("darkmode-toggle--light");
-  }
-
-
+  toggleDarkmode();
 })
+
+function checkDarkmode(){
+  //abc
+}
+
+function toggleDarkmode(){
+  if(darkmode){
+    $('.darkmode-toggle').removeClass("darkmode-toggle--light");
+  }else {
+    $('.darkmode-toggle').addClass("darkmode-toggle--light");
+  }
+}
 
 
 
