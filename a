@@ -1,4 +1,69 @@
 
+:root{
+  --main-bg: #fafafa;
+  --sidebar-bg-light: #6c46b1;
+  --sidebar-bg-dark: #6441A4;
+  --sidebar-bg-hover: #6c46b1;
+  --sidebar-bg-active: #6441A4;
+  --sidebar-color-hover: #fff;
+  --sidebar-color-active: #fff;
+
+  --sidebar-btn-1: #fff;
+  --sidebar-btn-2: #6c46b1;
+
+  --table-border: #dee2e6;
+  --table-color: #2f4963;
+  --table-bg-dark: #abc;
+  --playbar-bg: #eee;
+  --progressbar-bg: #6c46b1;
+  --rangeslider-empty-bg: #7f8c8d; 
+  --rangeslider-fill-bg: #6c46b1;
+  --darkmodetoggle-bg: #100f2c;
+}
+
+
+var(--sidebar-bg-dark)
+
+
+
+
+
+.darkmode-toggle--light {
+  background: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @import "../fonts/poppins.css";
 body {
