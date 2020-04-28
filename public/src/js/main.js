@@ -81,6 +81,23 @@ var options = {
 }
 
 
+document.getElementById('toggle').addEventListener('click', () => {
+  document.getElementById('blender').classList.toggle('expand');
+  document.getElementById('toggle').classList.toggle('s-module--hasZIndex--1QkpC');
+});
+
+$('.darkmode-toggle').click(function(){
+  if($(this).hasClass("darkmode-toggle--light")){
+    $(this).removeClass("darkmode-toggle--light");
+  }else {
+    $(this).addClass("darkmode-toggle--light");
+  }
+
+
+})
+
+
+
 showFiles();
 makeSlider();
 getPlaylists();
