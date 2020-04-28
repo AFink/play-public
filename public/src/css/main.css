@@ -273,7 +273,7 @@ MEDIAQUERIES
     }
     .controls{
       padding-right: 15px;
-    padding-left: 15px;
+      padding-left: 15px;
     }
 }
 
@@ -287,8 +287,8 @@ MEDIAQUERIES
   position: fixed;
   border-radius: 50%;
   border:none;
-  right: 5px;
-  bottom: 65px;
+  right: 0.5rem;
+  bottom: 70px;
   left: unset;
   cursor: pointer;
   -webkit-transition: all 0.5s ease;
