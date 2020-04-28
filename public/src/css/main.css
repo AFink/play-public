@@ -1,9 +1,30 @@
 
 @import "../fonts/poppins.css";
+:root{
+  --main-bg: #fafafa;
+  --sidebar-bg-light: #6c46b1;
+  --sidebar-bg-dark: #6441A4;
+  --sidebar-bg-hover: #6c46b1;
+  --sidebar-bg-active: #6441A4;
+  --sidebar-color-hover: #fff;
+  --sidebar-color-active: #fff;
+
+  --sidebar-btn-1: #fff;
+  --sidebar-btn-2: #6c46b1;
+
+  --playbar-bg: #eee;
+  --progressbar-bg: #6c46b1;
+  --darkmodetoggle-bg: #100f2c;
+}
+
+
+
+
+
+
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-    overflow-y: overlay;
+    background: var(--main-bg);
     cursor: default;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -61,7 +82,7 @@ SIDEBAR STYLE
     left: 0;
     height: 100vh;
     z-index: 50;
-    background: #6c46b1;
+    background: var(--sidebar-bg-light);
     color: #fff;
     transition: all 0.3s;
 }
@@ -72,12 +93,12 @@ SIDEBAR STYLE
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6441A4;
+    background: var(--sidebar-bg-dark);
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #6441a4;
+    border-bottom: 1px solid var(--sidebar-bg-dark);
 }
 
 #sidebar ul p {
@@ -94,14 +115,14 @@ SIDEBAR STYLE
 }
 
 #sidebar ul li a:hover {
-    color: #6c46b1;
-    background: #fff;
+    color: var(--sidebar-bg-hover);
+    background: var(--sidebar-color-hover);
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #6441A4;
+    color: var(--sidebar-color-active);
+    background: var(--sidebar-bg-active);
 }
 
 a[data-toggle="collapse"] {
@@ -139,14 +160,14 @@ ul.CTAs a {
 }
 
 a.download {
-    background: #fff;
-    color: #6c46b1;
+    background: var(--sidebar-btn-1);
+    color: var(--sidebar-btn-2);
 }
 
 a.sources,
 a.sources:hover {
-    background: #6c46b1 !important;
-    color: #fff !important;
+    background: var(--sidebar-btn-2);
+    color: var(--sidebar-btn-1);
 }
 /* ---------------------------------------------------
 CONTENT STYLE
@@ -175,14 +196,13 @@ CONTENT STYLE
  */
 
 .footer {
-  background-color: #eee;
+  background-color: var(--playbar-bg);
   box-shadow: 0 -6px 8px rgba(0,0,0,0.14);
   position: fixed;
   bottom: 0;
   width: calc(100% - 250px);
-  /* Set the fixed height of the footer here */
   height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+  line-height: 60px;
   margin-left: -40px;
 }
 
@@ -208,7 +228,7 @@ footer > div > div.row > div{
 
 .progress-bar{
   height: 5px;
-  background-color: #6c46b1;
+  background-color: var(--progressbar-bg);
 }
 
 #thumbnail{
@@ -301,9 +321,7 @@ MEDIAQUERIES
   align-items: center;
 }
 
-.darkmode-toggle--light {
-  background: #fff;
-}
+
 
 
 /*

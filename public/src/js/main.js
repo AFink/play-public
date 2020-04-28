@@ -106,11 +106,9 @@ function setDarkmode(value){
 function applyDarkmode(){
   if(darkmode){
     setCookie("darkmode","true",1);
-    $('.darkmode-toggle').addClass("darkmode-toggle--light");
     $('body').addClass("darkmode");
   }else {
     setCookie("darkmode","false",1);
-    $('.darkmode-toggle').removeClass("darkmode-toggle--light");
     $('body').removeClass("darkmode");
   }
 }
@@ -119,7 +117,7 @@ showFiles();
 makeSlider();
 getPlaylists();
 getData();
-var playerinterval = setInterval(getData, 10000);
+var playerinterval = setInterval(getData, 2000);
 var t = setInterval(updateTimer, 200);
 requestAnimationFrame(updateValues);
 
