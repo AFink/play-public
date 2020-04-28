@@ -50,3 +50,7 @@
         var alert_load_ytmore_title="<?php echo $lang["alert-load-ytmore-title"] ?>"
         var alert_load_ytmore_msg="<?php echo $lang["alert-load-ytmore-msg"] ?>"
       </script>
+    </head>
+
+    <body>
+      <button class="darkmode-toggle">🌓</button>

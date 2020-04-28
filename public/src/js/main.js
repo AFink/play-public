@@ -80,9 +80,6 @@ var options = {
   autoMatchOsTheme: true // default: true
 }
 
-const darkmode = new Darkmode(options);
-darkmode.showWidget();
-
 
 showFiles();
 makeSlider();
