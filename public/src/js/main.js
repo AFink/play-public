@@ -217,6 +217,7 @@ function getPlaylists(){
  */
 function datatable(){
   filesTable = $('#filesTable').DataTable({
+    "autoWidth": false,
     responsive : {
       details: false
     },
