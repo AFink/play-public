@@ -1,4 +1,5 @@
 
+
 @import "../fonts/poppins.css";
 body {
     font-family: 'Poppins', sans-serif;
@@ -106,7 +107,7 @@ SIDEBAR STYLE
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #6441A4;
+    background: #1e1135;
 }
 
 a[data-toggle="collapse"] {
@@ -281,11 +282,39 @@ MEDIAQUERIES
     }
 }
 
-.darkmode-toggle {
-  z-index: 300;
+
+
+
+
+
+
+.darkmode--activated #sidebar{
+  background-color: #ffffff;
 }
 
 
+.darkmode--activated #sidebar ul li.active>a{
+  background-color: #f2f2f2;
+  color: #000000;
+}
+
+.darkmode--activated #sidebar ul li>a{
+  background-color: #fff;
+  color: #000000;
+}
+
+.darkmode--activated .sidebar-header{
+  background-color: #fff!important;
+  color: #000000;
+}
+
+.darkmode--activated #sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #000;
+}
+.darkmode-toggle {
+  z-index: 500;
+}
 
 
 /*
