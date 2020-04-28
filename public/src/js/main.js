@@ -27,7 +27,6 @@ $('.dropdown-menu a').click(function(event){
   $('.dropdown-toggle').html($(this).html());
 })
 
-
 $('#list').click(function(event){
   event.preventDefault();
   $('#ytResponse .item').removeClass('grid-group-item');
@@ -77,11 +76,21 @@ function checkDarkmode(){
   //abc
 }
 
-function toggleDarkmode(){
+function toggleDarkmode(forcedarkmode = null){
+  if(forcedarkmode == true){
+    darkmode = false;
+  }if (forcedarkmode == false) {
+    darkmode = true;
+  }
+
   if(darkmode){
+    darkmode = false;
     $('.darkmode-toggle').removeClass("darkmode-toggle--light");
+    $('body').removeClass("darkmode");
   }else {
+    darkmode = true;
     $('.darkmode-toggle').addClass("darkmode-toggle--light");
+    $('body').addClass("darkmode");
   }
 }
 
