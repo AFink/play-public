@@ -5,5 +5,5 @@
 <script src="./src/js/sweetalert2.min.js"></script>
 <script src="./src/js/datatables.min.js"></script>
 <script src="./src/js/mCustomScrollbar.min.js"></script>
-<script src="./src/js/main.js"></script>
 <script src="./src/js/darkmode-js.min.js"></script>
+<script src="./src/js/main.js"></script>
