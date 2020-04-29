@@ -12,42 +12,58 @@
   --sidebar-btn-1: #fff;
   --sidebar-btn-2: #6c46b1;
   --navbar-bg: #fff;
+  --navbar-color: ;
+  --navbar-color-active:;
+  --navbar-color-hover: ;
 
 
-  --table-border-color: #dee2e6;
+  --table-border: #dee2e6;
   --table-color: #2f4963;
   --table-bg-dark: rgba(0,0,0,.05);
   --playbar-bg: #eee;
   --progressbar-bg: #6c46b1;
+  --icon-color: black;
+  --icon-color-active: blue;
   --rangeslider-empty-bg: #7f8c8d;
   --rangeslider-fill-bg: #6c46b1;
   --darkmodetoggle-bg: #100f2c;
 }
 
 :root.darkmode{
-  --main-bg: #000000;
-  --sidebar-bg-light: #6c46b1;
-  --sidebar-bg-dark: #6441A4;
-  --sidebar-bg-hover: #6c46b1;
-  --sidebar-bg-active: #6441A4;
-  --sidebar-color:#fff;
-  --sidebar-color-hover: #fff;
-  --sidebar-color-active: #fff;
-
-  --sidebar-btn-1: #fff;
-  --sidebar-btn-2: #6c46b1;
-  --navbar-bg: #fff;
+  --main-bg: #383c4a;
+  --sidebar-bg-light: #383c4a;
+  --sidebar-bg-dark: #2e323e;
+  --sidebar-bg-hover: rgba(0,0,0,.07);
+  --sidebar-bg-active: rgba(0,0,0,.07);
+  --sidebar-color:#9e9e9e;
+  --sidebar-color-hover: #dbdbdb;
+  --sidebar-color-active: #dbdbdb;
 
 
-  --table-border-color: #dee2e6;
-  --table-color: #2f4963;
-  --table-bg-dark: rgba(0,0,0,.05);
-  --playbar-bg: #eee;
+  --sidebar-btn-1: #9e9e9e;
+  --sidebar-btn-2: #383c4a;
+  --navbar-bg: #2e323e;
+  --navbar-color: #9e9e9e;
+  --navbar-color-active:#dbdbdb;
+  --navbar-color-hover: #dbdbdb;
+
+
+  --table-border: #2e323e;
+  --table-color: #9e9e9e;
+  --table-bg-dark: rgba(0,0,0,.1);
+  --playbar-bg: #383c4a;
   --progressbar-bg: #6c46b1;
+  --icon-color: #2e323e;
+  --icon-color-active: blue;
   --rangeslider-empty-bg: #7f8c8d;
   --rangeslider-fill-bg: #6c46b1;
-  --darkmodetoggle-bg: #100f2c;
+  --darkmodetoggle-bg: #eeeeee;
 }
+
+.darkmode #sidebar{
+  border-right: 1px solid #2e323e;
+}
+
 
 body {
 	font-family: 'Poppins', sans-serif;
@@ -78,13 +94,17 @@ a:focus {
 
 .navbar {
 	padding: 15px 10px;
-	background: var(--navbar-bg);
+	background: var(--navbar-bg)!important;
 	border-color: none;
 	border-radius: 0;
 	margin-bottom: 20px;
 	margin-top: -60px;
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 	z-index: 20;
+}
+
+.navbar .active{
+  color: var(--navbar-color-active)!important;
 }
 
 #navbarToBeToggled>form {
@@ -184,6 +204,10 @@ ul.CTAs a {
 	margin-bottom: 5px;
 }
 
+.badge{
+  transition:none;
+}
+
 a.download {
 	background: var(--sidebar-btn-1);
 	color: var(--sidebar-btn-2);
@@ -238,6 +262,7 @@ footer>div>div.row>div {
 }
 
 .icon {
+  color: var(--icon-color);
 	fill: currentColor;
 	vertical-align: middle;
 	cursor: pointer;
@@ -245,7 +270,7 @@ footer>div>div.row>div {
 }
 
 .icon.active {
-	color: blue;
+	color: var(--icon-color-active);
 }
 
 .progress {
@@ -365,7 +390,7 @@ MEDIAQUERIES
 	height: 3rem;
 	position: fixed;
 	border-radius: 50%;
-	border-color: none;
+	border-color: rgba(0,0,0,0);
 	right: 0.5rem;
 	bottom: 70px;
 	left: unset;
@@ -403,10 +428,6 @@ MEDIAQUERIES
   }
 
   thead tr {
-    border-color: var(--table-border)!important;
-  }
-
-  thead th {
     border-color: var(--table-border)!important;
   }
 
