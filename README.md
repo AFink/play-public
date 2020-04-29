@@ -21,4 +21,4 @@ https://bootsnipp.com/snippets/M515A
 https://git.syslul.de/sysLUL/Sinusbot-API-PHP, Fork of https://github.com/SinusBot/api-php
 
 
-https://darkmodejs.learn.uno/
+darkmode inspired by https://github.com/go-gitea/gitea-darkmode

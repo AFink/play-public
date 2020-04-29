@@ -92,6 +92,7 @@
 .darkmode .btn{
   color:#fff;
   background-color: #6c46b1;
+  border-color: #6441A4;
 }
 
 
@@ -121,6 +122,42 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
   outline: 0 none;
 }
+
+.darkmode * {
+	scrollbar-width: thin;
+	scrollbar-color: #87ab63 hsla(0, 0%, 100%, .1)
+}
+
+.darkmode ::-webkit-scrollbar {
+	-webkit-appearance: none!important;
+	width: 10px!important;
+	height: 10px!important
+}
+
+.darkmode ::-webkit-scrollbar-track {
+	border-radius: 0!important;
+	background: hsla(0, 0%, 100%, .1)!important
+}
+
+.darkmode ::-webkit-scrollbar-thumb {
+	cursor: pointer!important;
+	border-radius: 5px!important;
+	-webkit-transition: color .2s ease!important;
+	transition: color .2s ease!important
+}
+
+.darkmode ::-webkit-scrollbar-thumb,
+.darkmode ::-webkit-scrollbar-thumb:window-inactive {
+	 background:#6c46b1!important;
+}
+
+.darkmode ::-webkit-scrollbar-thumb:hover {
+	background: #6c46b1!important
+}
+
+
+
+
 
 
 body {
