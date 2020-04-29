@@ -405,6 +405,8 @@ function showYoutube(){
   removeActive();
   $("#youtube").addClass('active');
   $('#filesTable').hide();
+  $("#loadMore").hide();
+  $("#changeType").hide();
   $('#youtubeDiv').show();
 }
 /**
