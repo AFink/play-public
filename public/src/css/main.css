@@ -358,6 +358,8 @@ MEDIAQUERIES
 .table {
 	color: var(--table-color);
 	/*  background-color: var(--table-bg-light); */
+}
+
 	th,
 	td,
 	thead th {
@@ -366,10 +368,7 @@ MEDIAQUERIES
 	tbody tr:nth-of-type(odd) {
 		background-color: var(--table-bg-dark);
 	}
-}
 
-
-}
 
 /*
  * For the Youtube-search
