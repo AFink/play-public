@@ -77,11 +77,12 @@ $('.darkmode-toggle').click(function(){
 })
 
 function isInDarkmode() {
-  var cookie = getCookie(darkmode);
+  var cookie = getCookie("darkmode");
   if (cookie != null){
     return cookie;
   }
  if (window.matchMedia) {
+   console.log("media" + window.matchMedia('(prefers-color-scheme: dark)').matches);
    if(window.matchMedia('(prefers-color-scheme: dark)').matches){
      return true;
    } else {
@@ -101,14 +102,15 @@ function toggleDarkmode(){
 }
 function setDarkmode(value){
   darkmode = value;
+
   applyDarkmode();
 }
 function applyDarkmode(){
-  if(darkmode){
-    setCookie("darkmode","true",1);
+  if(darkmode.toString() == "true"){
+    setCookie("darkmode",true,1);
     $('html').addClass("darkmode");
   }else {
-    setCookie("darkmode","false",1);
+    setCookie("darkmode",false,1);
     $('html').removeClass("darkmode");
   }
 }
