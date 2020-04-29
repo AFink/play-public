@@ -106,10 +106,10 @@ function setDarkmode(value){
 function applyDarkmode(){
   if(darkmode){
     setCookie("darkmode","true",1);
-    $('body').addClass("darkmode");
+    $('html').addClass("darkmode");
   }else {
     setCookie("darkmode","false",1);
-    $('body').removeClass("darkmode");
+    $('html').removeClass("darkmode");
   }
 }
 setDarkmode(isInDarkmode());
