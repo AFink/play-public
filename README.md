@@ -1,5 +1,5 @@
 # Play-Public (Sinusbot-Plugin)
-> Play-Public ist ein Webinterface für den Sinusbot um eine unkomplizierten Zugang für alle User zu geben. Es ermöglicht die Steuerung eines festgelten Bot.
+> Play-Public ist ein Webinterface für den Sinusbot um eine unkomplizierten Zugang für alle User zu geben. Es ermöglicht die Steuerung eines festgelegten Bot.
 
 ## Installation
 
