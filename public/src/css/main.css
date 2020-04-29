@@ -96,6 +96,10 @@
 }
 
 
+.darkmode .navbar-light .navbar-brand {
+    color: rgb(158, 158, 158);
+}
+
 .darkmode .page-link {
   color: #8f9092;
   background-color: #383c4a;
