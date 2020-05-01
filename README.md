@@ -1,4 +1,5 @@
 # Play-Public (Sinusbot-Plugin)
+[![Build Status](https://drone.syslul.de/api/badges/sysLUL/play-public/status.svg)](https://drone.syslul.de/sysLUL/play-public)
 > Play-Public ist ein Webinterface für den Sinusbot um eine unkomplizierten Zugang für alle User zu geben. Es ermöglicht die Steuerung eines festgelegten Bot.
 
 ## Installation
