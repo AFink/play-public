@@ -8,23 +8,23 @@ include("../includes/head.php");
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3><?php echo $lang["sidebar-header"] ?></h3>
+                <h3><?php echo $lang["sidebar"]["header"] ?></h3>
             </div>
 
             <ul class="list-unstyled components">
-                <li id="files" onclick="showFiles()"><a><?php echo $lang["sidebar-music"] ?></a></li>
-                <li id="queue" onclick="showQueue()"><a><?php echo $lang["sidebar-queue"] ?><span id="queueLength" class="badge float-right align-middle ml-auto">0</span></a></li>
-                <li id="youtube" onclick="showYoutube()"><a><?php echo $lang["sidebar-youtube"] ?></a></li>
-                <li id="radio" onclick="showRadio()"><a><?php echo $lang["sidebar-radio"] ?></a></li>
+                <li id="files" onclick="showFiles()"><a><?php echo $lang["sidebar"]["all-files"] ?></a></li>
+                <li id="queue" onclick="showQueue()"><a><?php echo $lang["sidebar"]["queue"] ?><span id="queueLength" class="badge float-right align-middle ml-auto">0</span></a></li>
+                <li id="youtube" onclick="showYoutube()"><a><?php echo $lang["sidebar"]["youtube"] ?></a></li>
+                <li id="radio" onclick="showRadio()"><a><?php echo $lang["sidebar"]["radio"] ?></a></li>
             </ul>
             <ul id="playlists" class="list-unstyled components">
             </ul>
                 <ul class="list-unstyled CTAs">
                     <li>
-                        <a href="https://git.syslul.de/sysLUL/play-public" target="_blank" class="download"><?php echo $lang["sidebar-download"] ?></a>
+                        <a href="<?php echo _IMPRESSUMURL ?>" target="_blank" class="imprint"><?php echo $lang["sidebar"]["imprint"] ?></a>
                     </li>
                     <li>
-                        <a href="https://git.syslul.de/sysLUL/play-public/src/branch/master/README.md" target="_blank" class="sources"><?php echo $lang["sidebar-libaries"] ?></a>
+                        <a href="<?php echo _DATENSCHUTZURL ?>" target="_blank" class="privacy"><?php echo $lang["sidebar"]["privacy"] ?></a>
                     </li>
                 </ul>
         </nav>
@@ -38,12 +38,12 @@ include("../includes/head.php");
                 <table id="filesTable" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th><?php echo $lang["filestable-img"] ?></th>
-                            <th><?php echo $lang["filestable-id"] ?></th>
-                            <th><?php echo $lang["filestable-title"] ?></th>
-                            <th><?php echo $lang["filestable-duration"] ?></th>
-                            <th><?php echo $lang["filestable-artist"] ?></th>
-                            <th><?php echo $lang["filestable-album"] ?></th>
+                            <th><?php echo $lang["table"]["file"]["header"]["img"] ?></th>
+                            <th><?php echo $lang["table"]["file"]["header"]["id"] ?></th>
+                            <th><?php echo $lang["table"]["file"]["header"]["title"] ?></th>
+                            <th><?php echo $lang["table"]["file"]["header"]["duration"] ?></th>
+                            <th><?php echo $lang["table"]["file"]["header"]["artist"] ?></th>
+                            <th><?php echo $lang["table"]["file"]["header"]["album"] ?></th>
                         </tr>
                     </thead>
                     <tbody class="tbody">
@@ -55,8 +55,8 @@ include("../includes/head.php");
                 <table id="radioTable" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th><?php echo $lang["radiotable-name"] ?></th>
-                            <th><?php echo $lang["radiotable-desc"] ?></th>
+                            <th><?php echo $lang["table"]["radio"]["header"]["name"] ?></th>
+                            <th><?php echo $lang["table"]["radio"]["header"]["desc"] ?></th>
                         </tr>
                     </thead>
                     <tbody class="tbody-radio">
@@ -72,7 +72,7 @@ include("../includes/head.php");
                                 <input id="ytSearch" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
                             </div>
                             <div class="col-auto">
-                                <button class="btn btn-lg btn-success" type="submit"><?php echo $lang["youtube-search"] ?></button>
+                                <button class="btn btn-lg btn-success" type="submit"><?php echo $lang["youtube"]["search"] ?></button>
                             </div>
                         </div>
                     </form>
@@ -80,10 +80,10 @@ include("../includes/head.php");
                         <div class="col-lg-12 my-3">
                             <div class="pull-right">
                                 <button class="btn btn-info" id="list">
-                                    <?php echo $lang["youtube-listview"] ?>
+                                    <?php echo $lang["youtube"]["listview"] ?>
                                 </button>
                                 <button class="btn btn-danger" id="grid" style="display:none;">
-                                    <?php echo $lang["youtube-gridview"] ?>
+                                    <?php echo $lang["youtube"]["gridview"] ?>
                                 </button>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ include("../includes/head.php");
                     <div id="ytResponse" class="row view-group">
 
                     </div>
-                    <button id="loadMore" type="button" class="btn btn-info btn-lg btn-block" onclick="ytMore()" name="button" style="display:none;"><?php echo $lang["youtube-loadmore"] ?></button>
+                    <button id="loadMore" type="button" class="btn btn-info btn-lg btn-block" onclick="ytMore()" name="button" style="display:none;"><?php echo $lang["youtube"]["loadmore"] ?></button>
                     <br>
                 </div>
             </div>

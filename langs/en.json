@@ -1,85 +1,150 @@
 {
-    "head-title": "Play-Public",
-    "sidebar-header": "Public-Instance-Webinterface",
-    "sidebar-music": "All Music",
-    "sidebar-queue": "Queue",
-    "sidebar-youtube": "Youtube",
-    "sidebar-radio": "Radio Stations",
-    "sidebar-download": "Download source",
-    "sidebar-libaries": "Libaries",
-    "navbar-brand": "IDK",
-    "navbar-instances": "Instances",
-    "navbar-search": "Search",
-    "filestable-img": "",
-    "filestable-id": "ID",
-    "filestable-title": "Title",
-    "filestable-duration": "Duration",
-    "filestable-artist": "Artist",
-    "filestable-album": "Album",
-    "filestable-nothingfound": "nothing found here",
-    "foldertable-nothingfound": "nothing found here",
-    "queue-nothingfound": "nothing found here",
-    "playlist-nothingfound": "nothing found here",
-    "radiotable-name": "Name",
-    "radiotable-desc": "Description",
-    "youtube-search": "Search",
-    "youtube-listview": "List View",
-    "youtube-gridview": "grid View",
-    "youtube-play": "Play",
-    "youtube-queue": "add to queue",
-    "youtube-loadmore": "Load More",
-    "youtube-noqueryset": "No query set.",
-    "youtube-quotaexeeded-title": "ERROR: Youtube-API",
-    "youtube-quotaexeeded-msg": "Zu viele Requests! Probiere einen anderen API-Key oder versuche es morgen erneut.",
-    "youtube-error-title": "ERROR",
-    "youtube-error-msg": "YoutubeError!",
-    "instance-selected1": "Instance",
-    "instance-selected2": "selected",
-    "instance-volumesetto": "Volume set to",
-    "instance-volumecantset": "Volume couldnt be set",
-    "instance-novolumeprovided": "No volume provided",
-    "instance-repeatoff": "Repeat is now toggled off.",
-    "instance-repeatcantoff": "Repeat couldnt be disabled",
-    "instance-repeaton": "Repeat is now toggled on.",
-    "instance-repeatcanton": "Repeat couldnt be enabled",
-    "instance-shuffleoff": "Shuffle is now toggled off.",
-    "instance-shufflecantoff": "Shuffle couldnt be disabled",
-    "instance-shuffleon": "Shuffle is now toggled on.",
-    "instance-shufflecanton": "Shuffle couldnt be enabled",
-    "instance-playprevious": "Previous played.",
-    "instance-cantplayprevious": "Previous couldnt be played",
-    "instance-playnext": "Next played.",
-    "instance-cantplaynext": "Next couldnt be played",
-    "instance-playfile": "File played",
-    "instance-cantplayfile": "File couldnt be played.",
-    "instance-playradio": "Radio played",
-    "instance-cantplayradio": "Radio couldnt be played",
-    "instance-selecttoplay": "Please select somethig to play",
-    "instance-stop": "Playback stopped.",
-    "instance-cantstop": "Playback couldnt be stopped.",
-    "instance-ytqueue": "Video added to queue",
-    "instance-cantytqueue": "Video couldnt be added to queue.",
-    "instance-ytplay": "Video will be played soon",
-    "instance-cantytplay": "Video couldnt be played.",
-    "alert-error-title": "Oops...",
-    "alert-error-msg": "Ein Fehler ist aufgetreten",
-    "alert-load-files-title": "Loading",
-    "alert-load-files-msg": "Die Dateien werden geladen.",
-    "alert-load-folder-title": "Loading",
-    "alert-load-folder-msg": "Ordner wird geladen",
-    "alert-load-playlist-title": "Loading",
-    "alert-load-playlist-msg": "Playlist wird geladen",
-    "alert-load-queue-title": "Loading",
-    "alert-load-queue-msg": "Queue wird geladen",
-    "alert-load-radio-title": "Loading",
-    "alert-load-radio-msg": "Radios werden geladen",
-    "alert-load-yt-title": "Searching",
-    "alert-load-yt-msg": "Youtube wird durchw\u00fchlt",
-    "alert-load-ytmore-title": "Searching",
-    "alert-load-ytmore-msg": "Youtube wird erneut durchw\u00fchlt",
-    "datatable-lengthmenu": "Display _MENU_ records per page",
-    "datatable-zerorecords": "Nothing found - sorry",
-    "datatable-info": "Showing page _PAGE_ of _PAGES_",
-    "datatable-infoempty": "No records available",
-    "datatable-infofiltered": "(filtered from _MAX_ total records)"
+  "head": {
+    "title": "Play-Public"
+  },
+  "sidebar": {
+    "header": "Public-Public",
+    "all-files": "All Music",
+    "queue": "Queue",
+    "youtube": "Youtube",
+    "radio": "Radio Stations",
+    "imprint": "Imprint",
+    "privacy": "Privacy"
+  },
+  "navbar": {
+    "brand": "IDK",
+    "instances": "Instances",
+    "search": "Search"
+  },
+  "table": {
+    "file": {
+      "header": {
+        "img": "",
+        "id": "ID",
+        "title": "Title",
+        "duration": "Duration",
+        "artist": "Artist",
+        "album": "Album"
+      },
+      "body": {
+        "nothingfound": "nothing found here"
+      }
+    },
+    "folder": {
+      "body": {
+        "nothingfound": "nothing found here"
+      }
+    },
+    "queue": {
+      "body": {
+        "nothingfound": "nothing found here"
+      }
+    },
+    "playlist": {
+      "body": {
+        "nothingfound": "nothing found here"
+      }
+    },
+    "radio": {
+      "header": {
+        "name": "Name",
+        "desc": "Description"
+      }
+    }
+  },
+  "youtube": {
+    "search": "Search",
+    "listview": "List-Mode",
+    "gridview": "Grid-Mode",
+    "play": "Play",
+    "queue": "add to queue",
+    "loadmore": "load more"
+  },
+  "alert": {
+    "error": {
+      "title": "Oops...",
+      "msg": "An Issue occoured"
+    },
+    "load": {
+      "files-title": "Loading",
+      "files-msg": "Die Dateien werden geladen.",
+      "folder-title": "Loading",
+      "folder-msg": "Ordner wird geladen",
+      "playlist-title": "Loading",
+      "playlist-msg": "Playlist wird geladen",
+      "queue-title": "Loading",
+      "queue-msg": "Queue wird geladen",
+      "radio-title": "Loading",
+      "radio-msg": "Radios werden geladen",
+      "yt-title": "Searching",
+      "yt-msg": "Youtube wird durchwühlt",
+      "ytmore-title": "Searching",
+      "ytmore-msg": "Youtube wird erneut durchwühlt"
+    },
+    "instance": {
+      "selected1": "Instance",
+      "selected2": "selected",
+      "volumesetto": "Volume set to",
+      "volumecantset": "Volume couldnt be set",
+      "novolumeprovided": "No volume provided",
+      "repeatoff": "Repeat is now toggled off.",
+      "repeatcantoff": "Repeat couldnt be disabled",
+      "repeaton": "Repeat is now toggled on.",
+      "repeatcanton": "Repeat couldnt be enabled",
+      "shuffleoff": "Shuffle is now toggled off.",
+      "shufflecantoff": "Shuffle couldnt be disabled",
+      "shuffleon": "Shuffle is now toggled on.",
+      "shufflecanton": "Shuffle couldnt be enabled",
+      "playprevious": "Previous played.",
+      "cantplayprevious": "Previous couldnt be played",
+      "playnext": "Next played.",
+      "cantplaynext": "Next couldnt be played",
+      "playfile": "File played",
+      "cantplayfile": "File couldnt be played.",
+      "playradio": "Radio played",
+      "cantplayradio": "Radio couldnt be played",
+      "selecttoplay": "Please select somethig to play",
+      "stop": "Playback stopped.",
+      "cantstop": "Playback couldnt be stopped.",
+      "ytqueue": "Video added to queue",
+      "cantytqueue": "Video couldnt be added to queue.",
+      "ytplay": "Video will be played soon",
+      "cantytplay": "Video couldnt be played."
+    },
+    "youtube": {
+      "noqueryset": "No query set.",
+      "quotaexeeded": {
+        "title": "ERROR: Youtube-API",
+        "msg": "Too much requests, try later or tomorrow again."
+      },
+      "error": {
+        "title": "ERROR",
+        "msg": "YoutubeError!"
+      }
+    }
+  },
+  "datatable": {
+    "decimal": "",
+    "lengthmenu": "Display _MENU_ records per page",
+    "zerorecords": "Nothing found - sorry",
+    "info": "Showing page _PAGE_ of _PAGES_",
+    "infoempty": "No records available",
+    "infofiltered": "(filtered from _MAX_ total records)",
+    "emptytable": "No data available in table",
+    "infopostfix": "",
+    "thousands": ",",
+    "loading": "Loading...",
+    "processing": "Processing...",
+    "search": "Search:",
+    "paginate": {
+      "first": "First",
+      "last": "Last",
+      "next": "Next",
+      "previous": "Previous"
+    },
+    "aria": {
+      "sortascending": ": activate to sort column ascending",
+      "sortdescending": ": activate to sort column descending"
+    }
+  }
 }

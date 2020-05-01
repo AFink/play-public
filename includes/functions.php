@@ -387,13 +387,13 @@ function handleGoogleExeption($e){
   $reason = $json->error->errors[0]->reason;
   switch ($reason) {
     case 'quotaExceeded':
-      $title = $lang["youtube-quotaexeeded-title"];
-      $message = $lang["youtube-quotaexeeded-msg"];
+      $title = $lang["youtube"]["quotaexeeded"]["title"];
+      $message = $lang["youtube"]["quotaexeeded"]["msg"];
       break;
 
     default:
-      $title = $lang["youtube-error-title"];
-      $message = $lang["youtube-error-msg"];
+      $title = $lang["youtube"]["error"]["title"];
+      $message = $lang["youtube"]["error"]["msg"];
       break;
   }
   echo(json_encode(array("status" => "error", "title" => $title, "message" => $message)));

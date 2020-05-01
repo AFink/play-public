@@ -6,4 +6,7 @@ define("_INSTANCEUUIDS",array("38feb4a3-99df-15e9-5cd0-06d73137141f","3efa09aa-1
 define("_MAXRESULTS", 25);
 define("_DEVELOPER_KEY", "GOOGLE_DEV_KEY");
 define("_LANGS", array("de"=>"Deutsch","en"=>"Englisch"));
+
+define("_IMPRESSUMURL", "abc.com");
+define("_DATENSCHUTZURL", "abc.com");
  ?>
