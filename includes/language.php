@@ -17,12 +17,13 @@ class Language {
       $this->UserLng = $this->detectLang(_LANGS, 'de', $lang, false);
       $_SESSION["lang"] = $this->UserLng;
       //construct lang file
-      $langFile = '../langs/'. $this->UserLng . '.ini';
+      $langFile = '../langs/'. $this->UserLng . '.json';
       if(!file_exists($langFile)){
         throw new Execption("Language could not be loaded"); //or default to a language
       }
 
-      $this->$lang = parse_ini_file($langFile);
+      $file = file_get_contents($langFile);
+      $this->$lang = json_decode($file, true);
   }
 
   private function detectLang($allowed_languages, $default_language, $lang_variable = null, $strict_mode = true) {

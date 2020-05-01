@@ -166,13 +166,7 @@ function datatable(){
     responsive : {
       details: false
     },
-    "language": {
-      "lengthMenu": datatable_lengthmenu,
-      "zeroRecords": datatable_zerorecords,
-      "info": datatable_info,
-      "infoEmpty": datatable_infoempty,
-      "infoFiltered": datatable_infofiltered
-    },
+    "language": dataTableLang,
     columnDefs: [
         {responsivePriority: 2, targets: 0 },
         {responsivePriority: 99, targets: 1 },
@@ -321,13 +315,7 @@ function showRadio(){
     "createdRow": function( row, data, dataIndex ) {
       $(row).attr('onclick','playUrl(\'' + data['u'] +'\')');
   },
-    "language": {
-      "lengthMenu": datatable_lengthmenu,
-      "zeroRecords": datatable_zerorecords,
-      "info": datatable_info,
-      "infoEmpty": datatable_infoempty,
-      "infoFiltered": datatable_infofiltered
-    },
+    "language": dataTableLang,
     ajax: {
         url: './src/json/radio.json',
         dataSrc: 'e'

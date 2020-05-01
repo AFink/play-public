@@ -143,13 +143,13 @@ ul.CTAs a {
     margin-bottom: 5px;
 }
 
-a.download {
+a.imprint {
     background: #fff;
     color: #6c46b1;
 }
 
-a.sources,
-a.sources:hover {
+a.privacy,
+a.privacy:hover {
     background: #6c46b1 !important;
     color: #fff !important;
 }
