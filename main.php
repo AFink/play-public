@@ -12,8 +12,6 @@ try {
   exit();
 }
 
-require_once 'includes/functions.php';
-
 try {
   require_once 'config.php';
 } catch (\Exception $e) {
@@ -29,6 +27,10 @@ try {
   echo "Error while loading language";
   exit();
 }
+
+require_once 'includes/functions.php';
+
+
 
 
 session_start();

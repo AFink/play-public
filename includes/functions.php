@@ -385,8 +385,8 @@ function youtubeSearch($q){
               </p>
               <div class="row">
                   <div class="col-xs-12 col-md-12">
-                      <a id="playBtn" class="btn btn-success" onclick="ytPlay('<?php echo $videourl ?>')"><?php echo $lang["youtube-play"] ?></a>
-                      <a id="enqueueBtn" class="btn btn-success" onclick="ytQueue('<?php echo $videourl ?>')"><?php echo $lang["youtube-queue"] ?></a>
+                      <a id="playBtn" class="btn btn-success" onclick="ytPlay('<?php echo $videourl ?>')"><?php echo $lang["youtube"]["play"] ?></a>
+                      <a id="enqueueBtn" class="btn btn-success" onclick="ytQueue('<?php echo $videourl ?>')"><?php echo $lang["youtube"]["queue"] ?></a>
                   </div>
               </div>
           </div>
