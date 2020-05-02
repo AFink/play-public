@@ -121,7 +121,7 @@ if (isset($_GET['playpl'])) {
     }else {
       echo(json_encode(array("status" => "error", "message" => $lang["alert"]["instance"]["cantplayfile"])));
     }
-  }echo(json_encode(array("status" => "error", "message" => $lang["alert"]["instance"]["cantplayfile"])));
+  }
 }
 
 if (isset($_GET['ytQueue'])) {

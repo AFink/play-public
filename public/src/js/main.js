@@ -15,8 +15,51 @@ var queueLength = 0
 var filesTable = null;
 
 var q = ""
-var i = 0
 var i2 = 0
+
+window.addEventListener('popstate', function(event) {
+  chooseContent(getParams())
+}, false);
+
+
+const errorAlert = Swal.mixin({
+  icon: 'error',
+  title: alertErrorTitle,
+  text: alertErrorText,
+  onClose: showFiles
+})
+
+const loadingAlert = Swal.mixin({
+  onBeforeOpen: () => {
+    Swal.showLoading()
+  },
+  allowOutsideClick: false,
+  allowEscapeKey: false,
+  allowEnterKey:false,
+})
+
+
+const InfoMsg = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 2000,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
+function infoMsg(response){
+  var data = JSON.parse(response);
+  InfoMsg.fire({
+      icon: data.status,
+      title: data.message
+    })
+}
+
+
 
 var folder = []
 $('#radioTableDiv').hide();
@@ -84,7 +127,37 @@ const darkmode = new Darkmode(options);
 darkmode.showWidget();
 
 
-showFiles();
+
+
+function chooseContent(params){
+   switch (params[0]) {
+   case "folder":
+     folder = params.filter(function(el) {
+     return el.length && el==+el;
+     //  more comprehensive: return !isNaN(parseFloat(el)) && isFinite(el);
+    });
+    showFolder();
+     break;
+   case "playlist":
+    showPlaylist(params[1]);
+     break;
+   case "queue":
+    showQueue();
+     break;
+   case "radio":
+    showRadio();
+    break;
+   case "youtube":
+    showYoutube();
+    break;
+   default:
+    showFiles();
+    break;
+   }
+ }
+
+
+chooseContent(getParams())
 makeSlider();
 getPlaylists();
 getData();
@@ -96,6 +169,22 @@ requestAnimationFrame(updateValues);
 /**
  * Helpers
  */
+
+ function getParams(){
+   var params = window.location.href.replace(host,"")
+   params = params.split("/")
+   return params;
+ }
+ function ChangeUrl(title, url) {
+     if (typeof (history.pushState) != "undefined") {
+         var obj = { Title: title, Url: url };
+         history.pushState(obj, obj.Title,host + obj.Url);
+     } else {
+         alert("Browser does not support HTML5.");
+     }
+ }
+
+
 function millisToMinutesAndSeconds(millis) {
   var minutes = Math.floor(millis / 60000);
   var seconds = ((millis % 60000) / 1000).toFixed(0);
@@ -110,7 +199,7 @@ function makeSlider() {
          },
        onSlideEnd: function (value, percent, position) {
          $.ajax({
-             url: "act.php?action=changeVolume&volume=" + percent,
+             url: host + "act.php?action=changeVolume&volume=" + percent,
              success: function(data) {
                  infoMsg(data);
                  getData();
@@ -152,7 +241,7 @@ function getPlaylists(){
   $.ajax({
       type: "POST",
       data: {view:"playlists"},
-      url: "act.php",
+      url: host + "act.php",
       success: function(data, textStatus) {
           $("#playlists").html(data);
       },
@@ -183,30 +272,24 @@ function datatable(){
 }
 
 function showFiles(){
+  ChangeUrl('Files', 'files/');
   folder.length = 0;
-  if (i>0) {
-    loadingAlert.fire({
-      title: alert_load_files_title,
-      html: alert_load_files_msg,
-    })
-  };
+  loadingAlert.fire({
+    title: alert_load_files_title,
+    html: alert_load_files_msg,
+  })
   $.ajax({
       type: "POST",
-      url: "act.php",
+      url: host + "act.php",
       data: {view: "files"},
       success: function(data, textStatus) {
         removeActive();
-        if (i>0) {
-          filesTable.destroy();
-        };
+          if(filesTable instanceof $.fn.dataTable.Api){filesTable.destroy();}
           $(".tbody").html(data);
           datatable();
           $("#files").addClass('active');
-          if (i>0) {
-            Swal.close();
-          };
+          Swal.close();
 
-          i++;
         },
         error: function (xhr, ajaxOptions, thrownError) {
           Swal.close();
@@ -230,16 +313,17 @@ function folderBack(){
 
 }
 function folderAjax(){
+  ChangeUrl('Folder',"folder/" + folder.join("/"));
   loadingAlert.fire({
     title: alert_load_folder_title,
     html: alert_load_folder_msg,
   })
   $.ajax({
       type: "POST",
-      url: "act.php",
+      url: host + "act.php",
       data: {view:"folder", folders:folder},
       success: function(data, textStatus) {
-        filesTable.destroy();
+        if(filesTable instanceof $.fn.dataTable.Api){filesTable.destroy();}
         $(".tbody").html(data);
         datatable();
         Swal.close();
@@ -252,17 +336,18 @@ function folderAjax(){
 }
 
 function showPlaylist(uuid){
+  ChangeUrl('playlist', "playlist/" + uuid + "/");
   loadingAlert.fire({
     title: alert_load_playlist_title,
     html: alert_load_playlist_msg,
   })
   $.ajax({
       type: "POST",
-      url: "act.php",
+      url: host + "act.php",
       data: {view:"playlist",uuid:uuid},
       success: function(data, textStatus) {
         removeActive();
-        filesTable.destroy();
+        if(filesTable instanceof $.fn.dataTable.Api){filesTable.destroy();}
         $(".tbody").html(data);
         datatable();
         $("#" + uuid).addClass('active');
@@ -277,17 +362,18 @@ function showPlaylist(uuid){
 }
 
 function showQueue(){
+      ChangeUrl('Queue', "queue");
   loadingAlert.fire({
     title: alert_load_queue_title,
     html: alert_load_queue_msg,
   })
   $.ajax({
       type: "POST",
-      url: "act.php",
+      url: host + "act.php",
       data: {view:"queue"},
       success: function(data, textStatus) {
           removeActive();
-          filesTable.destroy();
+          if(filesTable instanceof $.fn.dataTable.Api){filesTable.destroy();}
           $(".tbody").html(data);
           datatable();
           $("#queue").addClass('active');
@@ -302,6 +388,7 @@ function showQueue(){
 }
 
 function showRadio(){
+  ChangeUrl('radio',"radio/");
   loadingAlert.fire({
     title: alert_load_radio_title,
     html: alert_load_radio_msg,
@@ -317,7 +404,7 @@ function showRadio(){
   },
     "language": dataTableLang,
     ajax: {
-        url: './src/json/radio.json',
+        url: host + "src/json/radio.json",
         dataSrc: 'e'
     },
     columns: [
@@ -335,6 +422,7 @@ function showRadio(){
 }
 
 function showYoutube(){
+      ChangeUrl('youtube', "youtube/");
   removeActive();
   $("#youtube").addClass('active');
   $('#filesTable').hide();
@@ -347,7 +435,7 @@ function showYoutube(){
 function playFile(uuid) {
      $(function() {
          $.ajax({
-             url: "act.php?playuuid=" + uuid,
+             url: host + "act.php?playuuid=" + uuid,
              success: function(data) {
                  infoMsg(data);
                playing = true;
@@ -364,7 +452,7 @@ function playFile(uuid) {
 function playPl(uuid,i){
    $(function() {
        $.ajax({
-           url: "act.php?playpl=" + uuid + "&i=" + i,
+           url: host + "act.php?playpl=" + uuid + "&i=" + i,
            success: function(data) {
                infoMsg(data);
              playing = true;
@@ -380,7 +468,7 @@ function playPl(uuid,i){
 function playUrl(url){
   $(function() {
       $.ajax({
-          url: "act.php?playurl=" + encodeURIComponent(url),
+          url: host + "act.php?playurl=" + encodeURIComponent(url),
           success: function(data) {
               infoMsg(data);
             playing = true;
@@ -425,7 +513,7 @@ function updateValues() {
 function getData() {
     $.ajax({
         type: "GET",
-        url: "act.php?action=getData",
+        url: host + "act.php?action=getData",
         success: function(data, textStatus) {
             var response = JSON.parse(data);
              title = response.title;
@@ -497,7 +585,7 @@ if(running){
  */
 function play(){
     $.ajax({
-        url: "act.php?action=play",
+        url: host + "act.php?action=play",
         success: function(data) {
             infoMsg(data);
           },
@@ -511,7 +599,7 @@ function play(){
 
 function stop() {
   $.ajax({
-    url: "act.php?action=stop",
+    url: host + "act.php?action=stop",
     success: function(data) {
         infoMsg(data);
       },
@@ -524,7 +612,7 @@ function stop() {
 function toggleRepeat() {
   $(function() {
       $.ajax({
-          url: "act.php?action=togglerepeat",
+          url: host + "act.php?action=togglerepeat",
           success: function(data) {
             infoMsg(data);
               getData();
@@ -538,7 +626,7 @@ function toggleRepeat() {
 function toggleShuffle() {
   $(function() {
       $.ajax({
-          url: "act.php?action=toggleshuffle",
+          url: host + "act.php?action=toggleshuffle",
           success: function(data) {
               infoMsg(data);
               getData();
@@ -552,7 +640,7 @@ function toggleShuffle() {
 function back() {
   $(function() {
       $.ajax({
-          url: "act.php?action=back",
+          url: host + "act.php?action=back",
           success: function(data) {
               infoMsg(data);
               getData();
@@ -566,7 +654,7 @@ function back() {
 function forward() {
   $(function() {
       $.ajax({
-          url: "act.php?action=forward",
+          url: host + "act.php?action=forward",
           success: function(data) {
               infoMsg(data);
               getData();
@@ -588,7 +676,7 @@ function chooseInstance(uuid){
   $.ajax({
       type: "POST",
       data: {instance:uuid, extra: "showMsg"},
-      url: "act.php",
+      url: host + "act.php",
       success: function(data) {
           infoMsg(data);
           getData();
@@ -602,7 +690,7 @@ function ytSearch(q){
     html: alert_load_yt_msg,
   })
   $.ajax({
-      url: "act.php?action=ytSearch&q=" + encodeURIComponent(q),
+      url: host + "act.php?action=ytSearch&q=" + encodeURIComponent(q),
       success: function(data){
         try {
           var tmp = JSON.parse(data);
@@ -640,7 +728,7 @@ function ytMore(){
       html: alert_load_ytmore_msg,
     })
     $.ajax({
-        url: "act.php?action=ytSearch&pageToken=" + encodeURIComponent(nextPageToken) + "&q=" + encodeURIComponent(q),
+        url: host + "act.php?action=ytSearch&pageToken=" + encodeURIComponent(nextPageToken) + "&q=" + encodeURIComponent(q),
         success: function(data){
             $("#ytResponse").html($("#ytResponse").html() + data);
             if (nextPageToken == "") {
@@ -676,7 +764,7 @@ $('#ytForm').submit(function( event ) {
 
 function ytPlay(url){
       $.ajax({
-          url: "act.php?ytUrl=" + encodeURIComponent(url),
+          url: host + "act.php?ytUrl=" + encodeURIComponent(url),
           success: function(data) {
               infoMsg(data);
               getData();
@@ -689,7 +777,7 @@ function ytPlay(url){
 
 function ytQueue(url){
       $.ajax({
-          url: "act.php?ytQueue=" + encodeURIComponent(url),
+          url: host + "act.php?ytQueue=" + encodeURIComponent(url),
           success: function(data) {
               infoMsg(data);
               getData();
@@ -698,42 +786,4 @@ function ytQueue(url){
               errorAlert.fire();
             }
       });
-}
-
-
-
-const errorAlert = Swal.mixin({
-  icon: 'error',
-  title: alertErrorTitle,
-  text: alertErrorText
-})
-
-const loadingAlert = Swal.mixin({
-  onBeforeOpen: () => {
-    Swal.showLoading()
-  },
-  allowOutsideClick: false,
-  allowEscapeKey: false,
-  allowEnterKey:false,
-})
-
-
-const InfoMsg = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 2000,
-    timerProgressBar: true,
-    onOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
-    }
-  })
-
-function infoMsg(response){
-  var data = JSON.parse(response);
-  InfoMsg.fire({
-      icon: data.status,
-      title: data.message
-    })
 }

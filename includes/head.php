@@ -5,15 +5,15 @@
       <meta http-equiv="cache-control" content="no-cache" />
       <meta http-equiv="Pragma" content="no-cache" />
       <meta http-equiv="Expires" content="-1" />
-      <link rel="stylesheet" href="./src/css/bootstrap.min.css">
-      <link rel="stylesheet" href="./src/css/rangeslider.css">
-      <link rel="stylesheet" href="./src/css/sweetalert2.min.css">
-      <link rel="stylesheet" href="./src/css/datatables.min.css">
-      <link rel="stylesheet" href="./src/css/mCustomScrollbar.min.css">
-      <link rel="stylesheet" href="./src/css/main.css">
+      <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/bootstrap.min.css">
+      <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/rangeslider.css">
+      <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/sweetalert2.min.css">
+      <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/datatables.min.css">
+      <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/mCustomScrollbar.min.css">
+      <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/main.css">
       <meta charset="utf-8">
       <title><?php echo $lang["head"]["title"] ?></title>
-      <link rel="shortcut icon" type="image/x-icon" href="./src/img/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="<?php echo _ROOTURL ?>src/img/favicon.ico">
       <!-- SEO META TAG -->
       <meta name="author" content="sysLUL">
       <meta name="publisher" content="sysLUL">
@@ -24,9 +24,11 @@
       <meta name="audience" content="Alle">
       <meta http-equiv="content-language" content="de">
       <meta name="robots" content="index, follow">
-      <meta property="og:image" content="./src/img/Logo.png" />
+      <meta property="og:image" content="<?php echo _ROOTURL ?>src/img/Logo.png" />
 
       <script type="text/javascript">
+      var host = "<?php echo _ROOTURL ?>";
+
         var dataTableLang = {
           "decimal":        "<?php echo $lang["datatable"]["decimal"] ?>",
           "lengthMenu": "<?php echo $lang["datatable"]["lengthmenu"] ?>",
@@ -47,7 +49,7 @@
               "previous":   "<?php echo $lang["datatable"]["paginate"]["previous"] ?>",
           },
           "aria": {
-              "sortAscending":  "<?php echo $lang["datatable"]["paginate"]["sortascending"] ?>",
+              "sortAscending":  "<?php echo $lang["datatable"]["aria"]["sortascending"] ?>",
               "sortDescending": "<?php echo $lang["datatable"]["aria"]["sortdescending"] ?>"
           }
       }

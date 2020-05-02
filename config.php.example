@@ -9,4 +9,6 @@ define("_LANGS", array("de"=>"Deutsch","en"=>"Englisch"));
 
 define("_IMPRESSUMURL", "abc.com");
 define("_DATENSCHUTZURL", "abc.com");
+
+define("_ROOTURL", "https://beta.awedel.de/");
  ?>
