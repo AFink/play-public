@@ -14,7 +14,8 @@
     "navbar": {
         "brand": "IDK",
         "instances": "Instanz",
-        "search": "Suche"
+        "search": "Suche",
+        "languages": "Sprachen"
     },
     "table": {
         "file": {
