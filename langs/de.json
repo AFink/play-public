@@ -1,4 +1,9 @@
 {
+  "langinfo": {
+    "code": "en",
+    "display": "English"
+  }
+  "translations": {
     "head": {
         "title": "Play-Public"
     },
@@ -149,4 +154,5 @@
             "sortdescending": ": activate to sort column descending"
         }
     }
+  }
 }

@@ -4,6 +4,7 @@ class Language {
   private $UserLng;
   private $langSelected;
   public $lang = array();
+  private $langinfo;
 
 
   public function __construct(){
@@ -23,7 +24,9 @@ class Language {
       }
 
       $file = file_get_contents($langFile);
-      $this->$lang = json_decode($file, true);
+      $filecontent = json_decode($file, true);
+      $this->$langinfo = ["langinfo"];
+      $this->$lang = $filecontent["translations"];
   }
 
   private function detectLang($allowed_languages, $default_language, $lang_variable = null, $strict_mode = true) {
@@ -99,8 +102,8 @@ class Language {
       return $current_lang;
   }
 
-  public function getUserLangCode(){
-    return $this->$UserLng;
+  public function getLangInfo(){
+    return $this->$langinfo;
   }
 
 

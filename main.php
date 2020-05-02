@@ -24,6 +24,7 @@ try {
   require_once 'includes/language.php';
   $language = New Language();
   $lang =  $language->userLanguage();
+  $langinfo = $language->getLangInfo();
 } catch (\Exception $e) {
   echo "Error while loading language";
   exit();

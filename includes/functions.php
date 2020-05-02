@@ -114,7 +114,7 @@ function getInstanceList(){
   foreach (_INSTANCEUUIDS as $uuid) {
     $instance = $sinusbot->getInstanceByUUID($uuid);
     $nick = $instance->getNick(); ?>
-    <li class="nav-item <?php if($uuid == $iUUID){echo("active")} ?>">
+    <li class="nav-item <?php if($uuid == $iUUID){echo("active");} ?>">
       <a class="nav-link" id="<?php echo($uuid) ?>" onclick="chooseInstance('<?php echo($uuid) ?>')"><?php echo($nick) ?></a>
     </li>
     <?php
