@@ -16,7 +16,7 @@ class Language {
       }else {
         $lang = null;
       }
-      $this->UserLng = $this->detectLang($this->getExistingLangs()), 'de', $lang, false);
+      $this->UserLng = $this->detectLang($this->getExistingLangs(), 'de', $lang, false);
       $_SESSION["lang"] = $this->UserLng;
       //construct lang file
       $langFile = '../langs/'. $this->UserLng . '.json';
