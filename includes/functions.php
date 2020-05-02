@@ -110,15 +110,41 @@ function getInstanceList(){
   global $lang;
   global $sinusbot;
   global $instanceUUID;
+  global $iUUID;
   foreach (_INSTANCEUUIDS as $uuid) {
     $instance = $sinusbot->getInstanceByUUID($uuid);
     $nick = $instance->getNick(); ?>
-    <li class="d-inline-block"><a class="nav-link" id="<?php echo($uuid) ?>" onclick="chooseInstance('<?php echo($uuid) ?>')"><?php echo($nick) ?></a></li>
+    <li class="nav-item <?php if($uuid == $iUUID){echo("active")} ?>">
+      <a class="nav-link" id="<?php echo($uuid) ?>" onclick="chooseInstance('<?php echo($uuid) ?>')"><?php echo($nick) ?></a>
+    </li>
     <?php
   }
 }
 
+function getLangDropdown()
+{
+  ?>
+  <a class="dropdown-item" onclick="selectLang("abc")">Action</a>
+  <?php
+}
 
+function getLangList()
+{
+  ?>
+  <li class="nav-item d-inline-block d-md-none">
+    <a class="nav-link" href="#">German</a>
+  </li>
+  <li class="nav-item d-inline-block d-md-none">
+    <a class="nav-link" href="#">German</a>
+  </li>
+  <li class="nav-item d-inline-block d-md-none">
+    <a class="nav-link" href="#">German</a>
+  </li>
+  <li class="nav-item d-inline-block d-md-none">
+    <a class="nav-link" href="#">German</a>
+  </li>
+  <?php
+}
 /**
  *  for public/act.php
  */

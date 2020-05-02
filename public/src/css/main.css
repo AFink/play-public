@@ -114,10 +114,8 @@ a[data-toggle="collapse"] {
 }
 
 .dropdown-toggle::after {
-    display: block;
     position: absolute;
     top: 50%;
-    right: 20px;
     transform: translateY(-50%);
 }
 
@@ -287,6 +285,10 @@ MEDIAQUERIES
 
 
 
+
+nav form{
+  margin-bottom: 0;
+}
 
 /*
  * For the Youtube-search
