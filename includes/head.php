@@ -27,7 +27,7 @@
       <meta property="og:image" content="<?php echo _ROOTURL ?>src/img/Logo.png" />
 
       <script type="text/javascript">
-      var host = "<?php echo _ROOTURL ?>";
+        var host = "<?php echo _ROOTURL ?>";
 
         var dataTableLang = {
           "decimal":        "<?php echo $lang["datatable"]["decimal"] ?>",
