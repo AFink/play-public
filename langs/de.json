@@ -1,150 +1,151 @@
 {
-  "head": {
-    "title": "Play-Public"
-  },
-  "sidebar": {
-    "header": "Public-Public",
-    "all-files": "Alle Dateien",
-    "queue": "Warteschleife",
-    "youtube": "Youtube",
-    "radio": "Radio",
-    "imprint": "Impressum",
-    "privacy": "Datenschutz"
-  },
-  "navbar": {
-    "brand": "IDK",
-    "instances": "Instanz",
-    "search": "Suche"
-  },
-  "table": {
-    "file": {
-      "header": {
-        "img": "",
-        "id": "ID",
-        "title": "Titel",
-        "duration": "Dauer",
-        "artist": "Künstler",
-        "album": "Album"
-      },
-      "body": {
-        "nothingfound": "hier nichts gefunden"
-      }
+    "head": {
+        "title": "Play-Public"
     },
-    "folder": {
-      "body": {
-        "nothingfound": "hier nichts gefunden"
-      }
+    "sidebar": {
+        "header": "Public-Public",
+        "all-files": "Alle Dateien",
+        "queue": "Warteschleife",
+        "youtube": "Youtube",
+        "radio": "Radio",
+        "imprint": "Impressum",
+        "privacy": "Datenschutz"
     },
-    "queue": {
-      "body": {
-        "nothingfound": "hier nichts gefunden"
-      }
+    "navbar": {
+        "brand": "IDK",
+        "instances": "Instanz",
+        "search": "Suche"
     },
-    "playlist": {
-      "body": {
-        "nothingfound": "hier nichts gefunden"
-      }
-    },
-    "radio": {
-      "header": {
-        "name": "Name",
-        "desc": "Beschreibung"
-      }
-    }
-  },
-  "youtube": {
-    "search": "Suche",
-    "listview": "List-Modus",
-    "gridview": "Raster-Modus",
-    "play": "Play",
-    "queue": "zur Warteschleife hinzufügen",
-    "loadmore": "Mehr laden"
-  },
-  "alert": {
-    "error": {
-      "title": "Oops...",
-      "msg": "Ein Fehler ist aufgetreten"
-    },
-    "load": {
-      "files-title": "Lade",
-      "files-msg": "Die Dateien werden geladen.",
-      "folder-title": "Lade",
-      "folder-msg": "Ordner wird geladen",
-      "playlist-title": "Lade",
-      "playlist-msg": "Playlist wird geladen",
-      "queue-title": "Lade",
-      "queue-msg": "Queue wird geladen",
-      "radio-title": "Lade",
-      "radio-msg": "Radios werden geladen",
-      "yt-title": "Suche",
-      "yt-msg": "Youtube wird durchwühlt",
-      "ytmore-title": "Suche",
-      "ytmore-msg": "Youtube wird erneut durchwühlt"
-    },
-    "instance": {
-      "selected1": "Instanz",
-      "selected2": "ausgewählt",
-      "volumesetto": "Lautstärke gesetzt auf",
-      "volumecantset": "Lautstärke konnte nicht eingestellt werden",
-      "novolumeprovided": "No volume provided",
-      "repeatoff": "Wiederholung ist jetzt ausgeschaltet.",
-      "repeatcantoff": "Wiederholung konnte nicht deaktiviert werden",
-      "repeaton": "Wiederholen ist jetzt aktiviert.",
-      "repeatcanton": "Wiederholung konnte nicht aktiviert werden",
-      "shuffleoff": "Shuffle ist jetzt ausgeschaltet.",
-      "shufflecantoff": "Shuffle konnte nicht deaktiviert werden",
-      "shuffleon": "Shuffle ist jetzt eingeschaltet.",
-      "shufflecanton": "Shuffle konnte nicht aktiviert werden",
-      "playprevious": "Previous played.",
-      "cantplayprevious": "Previous couldnt be played",
-      "playnext": "Next played.",
-      "cantplaynext": "Next couldnt be played",
-      "playfile": "File played",
-      "cantplayfile": "File couldnt be played.",
-      "playradio": "Radio played",
-      "cantplayradio": "Radio couldnt be played",
-      "selecttoplay": "Please select somethig to play",
-      "stop": "Playback stopped.",
-      "cantstop": "Playback couldnt be stopped.",
-      "ytqueue": "Video added to queue",
-      "cantytqueue": "Video couldnt be added to queue.",
-      "ytplay": "Video will be played soon",
-      "cantytplay": "Video couldnt be played."
+    "table": {
+        "file": {
+            "header": {
+                "img": "",
+                "id": "ID",
+                "title": "Titel",
+                "duration": "Dauer",
+                "artist": "Künstler",
+                "album": "Album"
+            },
+            "body": {
+                "nothingfound": "hier nichts gefunden"
+            }
+        },
+        "folder": {
+            "body": {
+                "nothingfound": "hier nichts gefunden"
+            }
+        },
+        "queue": {
+            "body": {
+                "nothingfound": "hier nichts gefunden"
+            }
+        },
+        "playlist": {
+            "body": {
+                "nothingfound": "hier nichts gefunden"
+            }
+        },
+        "radio": {
+            "header": {
+                "name": "Name",
+                "desc": "Beschreibung"
+            }
+        }
     },
     "youtube": {
-      "noqueryset": "No query set.",
-      "quotaexeeded": {
-        "title": "FEHLER: Youtube-API",
-        "quotaexeeded-msg": "Zu viele Requests! Probiere einen anderen API-Key oder versuche es morgen erneut."
-      },
-      "error": {
-        "title": "ERROR",
-        "msg": "YoutubeError!"
-      }
-    }
-  },
-  "datatable": {
-    "decimal": "",
-    "lengthmenu": "Zeige _MENU_ Dinge pro Seite",
-    "zerorecords": "Nix gefunden, sry.",
-    "info": "Showing page _PAGE_ of _PAGES_aa",
-    "infoempty": "keine Einträge vorhanden",
-    "infofiltered": "(filtered from _MAX_ total records)",
-    "emptytable": "No data available in table",
-    "infopostfix": "",
-    "thousands": ",",
-    "loading": "Loading...",
-    "processing": "Processing...",
-    "search": "Search:",
-    "paginate": {
-      "first": "First",
-      "last": "Last",
-      "next": "Next",
-      "previous": "Previous"
+        "search": "Suche",
+        "listview": "List-Modus",
+        "gridview": "Raster-Modus",
+        "play": "Play",
+        "queue": "zur Warteschleife hinzufügen",
+        "loadmore": "Mehr laden"
     },
-    "aria": {
-      "sortascending": ": activate to sort column ascending",
-      "sortdescending": ": activate to sort column descending"
+    "alert": {
+        "error": {
+            "title": "Oops...",
+            "msg": "Ein Fehler ist aufgetreten"
+        },
+        "load": {
+            "files-title": "Lade",
+            "files-msg": "Die Dateien werden geladen.",
+            "folder-title": "Lade",
+            "folder-msg": "Ordner wird geladen",
+            "playlist-title": "Lade",
+            "playlist-msg": "Playlist wird geladen",
+            "queue-title": "Lade",
+            "queue-msg": "Queue wird geladen",
+            "radio-title": "Lade",
+            "radio-msg": "Radios werden geladen",
+            "yt-title": "Suche",
+            "yt-msg": "Youtube wird durchwühlt",
+            "ytmore-title": "Suche",
+            "ytmore-msg": "Youtube wird erneut durchwühlt"
+        },
+        "instance": {
+            "selected1": "Instanz",
+            "selected2": "ausgewählt",
+            "volumesetto": "Lautstärke gesetzt auf",
+            "volumecantset": "Lautstärke konnte nicht eingestellt werden",
+            "novolumeprovided": "No volume provided",
+            "repeatoff": "Wiederholung ist jetzt ausgeschaltet.",
+            "repeatcantoff": "Wiederholung konnte nicht deaktiviert werden",
+            "repeaton": "Wiederholen ist jetzt aktiviert.",
+            "repeatcanton": "Wiederholung konnte nicht aktiviert werden",
+            "shuffleoff": "Shuffle ist jetzt ausgeschaltet.",
+            "shufflecantoff": "Shuffle konnte nicht deaktiviert werden",
+            "shuffleon": "Shuffle ist jetzt eingeschaltet.",
+            "shufflecanton": "Shuffle konnte nicht aktiviert werden",
+            "playprevious": "Previous played.",
+            "cantplayprevious": "Previous couldnt be played",
+            "playnext": "Next played.",
+            "cantplaynext": "Next couldnt be played",
+            "playfile": "File played",
+            "cantplayfile": "File couldnt be played.",
+            "playradio": "Radio played",
+            "cantplayradio": "Radio couldnt be played",
+            "selecttoplay": "Please select somethig to play",
+            "stop": "Playback stopped.",
+            "cantstop": "Playback couldnt be stopped.",
+            "ytqueue": "Video added to queue",
+            "cantytqueue": "Video couldnt be added to queue.",
+            "ytplay": "Video will be played soon",
+            "cantytplay": "Video couldnt be played."
+        },
+        "youtube": {
+            "noqueryset": "No query set.",
+            "quotaexeeded": {
+                "title": "FEHLER: Youtube-API",
+                "quotaexeeded-msg": "Zu viele Requests! Probiere einen anderen API-Key oder versuche es morgen erneut.",
+                "msg": "Zu viele Verbindungen, versuche es später oder morgen erneut."
+            },
+            "error": {
+                "title": "ERROR",
+                "msg": "YoutubeError!"
+            }
+        }
+    },
+    "datatable": {
+        "decimal": "",
+        "lengthmenu": "Zeige _MENU_ Dinge pro Seite",
+        "zerorecords": "Nix gefunden, sry.",
+        "info": "Showing page _PAGE_ of _PAGES_aa",
+        "infoempty": "keine Einträge vorhanden",
+        "infofiltered": "(filtered from _MAX_ total records)",
+        "emptytable": "No data available in table",
+        "infopostfix": "",
+        "thousands": ",",
+        "loading": "Loading...",
+        "processing": "Processing...",
+        "search": "Search:",
+        "paginate": {
+            "first": "First",
+            "last": "Last",
+            "next": "Next",
+            "previous": "Previous"
+        },
+        "aria": {
+            "sortascending": ": activate to sort column ascending",
+            "sortdescending": ": activate to sort column descending"
+        }
     }
-  }
 }
