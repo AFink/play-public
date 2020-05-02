@@ -5,6 +5,7 @@ class Language {
   private $langSelected;
   private $lang;
   private $langinfo;
+  private $langs;
 
 
   public function __construct(){
@@ -15,7 +16,7 @@ class Language {
       }else {
         $lang = null;
       }
-      $this->UserLng = $this->detectLang(_LANGS, 'de', $lang, false);
+      $this->UserLng = $this->detectLang($this->getExistingLangs()), 'de', $lang, false);
       $_SESSION["lang"] = $this->UserLng;
       //construct lang file
       $langFile = '../langs/'. $this->UserLng . '.json';
@@ -100,6 +101,26 @@ class Language {
 
       // die gefundene Sprache zurückgeben
       return $current_lang;
+  }
+
+
+  public function getExistingLangs(){
+    $path    = '../langs/';
+    $files = scandir($path);
+    $files = array_diff(scandir($path), array('.', '..'));
+    $this->langs = str_replace(".json", "", $files);
+    return $this->langs;
+  }
+
+  public function getSpecificLangInfo($l){
+    $langFile = '../langs/'. $l . '.json';
+    if(!file_exists($langFile)){
+      throw new Execption("Language could not be found");
+    }
+
+    $file = file_get_contents($langFile);
+    $filecontent = json_decode($file, true);
+    return $filecontent["langinfo"];
   }
 
   public function getLangInfo(){

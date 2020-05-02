@@ -123,9 +123,12 @@ function getInstanceList(){
 
 function getLangDropdown()
 {
-  ?>
-  <a class="dropdown-item" onclick="selectLang("abc")">Action</a>
-  <?php
+  foreach ($language->getExistingLangs() as $key) {
+    $info = $language->getSpecificLangInfo($key);
+    ?>
+    <a class="dropdown-item" onclick="selectLang("abc")"><?php echo $info["display"] ?></a>
+    <?php
+  }
 }
 
 function getLangList()
