@@ -124,35 +124,31 @@ function getInstanceList(){
 function getLangDropdown()
 {
   global $language;
-  foreach ($language->getExistingLangs() as $key) {
+  $arr = $language->getExistingLangs();
+  ksort($arr);
+  foreach ($arr as $key) {
     $info = $language->getSpecificLangInfo($key);
-    if ($info["code"] != $language->getLangInfo()["code"]) {
-      // code...
-
       ?>
-      <a class="dropdown-item" onclick="selectLang("<?php echo $info["code"] ?>")"><?php echo $info["display"] ?></a>
+      <a class="dropdown-item<?php if ($info["code"] != $language->getLangInfo()["code"]) {echo " active"} ?>" onclick="selectLang('<?php echo $info["code"] ?>')"><?php echo $info["display"] ?></a>
       <?php
-    }
   }
 }
 
 function getLangList()
 {
-  ?>
-  <li class="nav-item d-inline-block d-md-none">
-    <a class="nav-link" href="#">German</a>
-  </li>
-  <li class="nav-item d-inline-block d-md-none">
-    <a class="nav-link" href="#">German</a>
-  </li>
-  <li class="nav-item d-inline-block d-md-none">
-    <a class="nav-link" href="#">German</a>
-  </li>
-  <li class="nav-item d-inline-block d-md-none">
-    <a class="nav-link" href="#">German</a>
-  </li>
-  <?php
+  global $language;
+  $arr = $language->getExistingLangs();
+  ksort($arr);
+  foreach ($arr as $key) {
+    $info = $language->getSpecificLangInfo($key);
+    ?>
+      <li class="nav-item d-inline-block d-md-none">
+        <a class="nav-link<?php if ($info["code"] != $language->getLangInfo()["code"]) {echo " active"} ?>" onclick="selectLang('<?php echo $info["code"] ?>')"><?php echo $info["display"] ?></a>
+      </li>
+      <?php
+  }
 }
+
 /**
  *  for public/act.php
  */
