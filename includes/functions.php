@@ -129,7 +129,7 @@ function getLangDropdown()
   foreach ($arr as $key) {
     $info = $language->getSpecificLangInfo($key);
       ?>
-      <a class="dropdown-item<?php if ($info["code"] != $language->getLangInfo()["code"]) {echo " active"} ?>" onclick="selectLang('<?php echo $info["code"] ?>')"><?php echo $info["display"] ?></a>
+      <a class="dropdown-item<?php if ($info["code"] == $language->getLangInfo()["code"]) {echo " active";} ?>" onclick="selectLang('<?php echo $info["code"] ?>')"><?php echo $info["display"] ?></a>
       <?php
   }
 }
@@ -143,7 +143,7 @@ function getLangList()
     $info = $language->getSpecificLangInfo($key);
     ?>
       <li class="nav-item d-inline-block d-md-none">
-        <a class="nav-link<?php if ($info["code"] != $language->getLangInfo()["code"]) {echo " active"} ?>" onclick="selectLang('<?php echo $info["code"] ?>')"><?php echo $info["display"] ?></a>
+        <a class="nav-link<?php if ($info["code"] == $language->getLangInfo()["code"]) {echo " active";} ?>" onclick="selectLang('<?php echo $info["code"] ?>')"><?php echo $info["display"] ?></a>
       </li>
       <?php
   }
@@ -174,7 +174,7 @@ function displayFilesGrid(){
     <tr>
       <td></td>
       <td></td>
-      <td><?php $lang["filestable-nothingfound"] ?></td>
+      <td><?php $lang["table"]["file"]["body"]["nothingfound"] ?></td>
       <td></td>
       <td></td>
       <td></td>
@@ -216,7 +216,7 @@ function displayFolderGrid(){
   <tr>
     <td></td>
     <td></td>
-    <td><?php $lang["foldertable-nothingfound"] ?></td>
+    <td><?php $lang["table"]["folder"]["body"]["nothingfound"] ?></td>
     <td></td>
     <td></td>
     <td></td>
@@ -247,7 +247,7 @@ function displayPlGrid(){
     <tr>
       <td></td>
       <td></td>
-      <td><?php $lang["playlist-nothingfound"] ?></td>
+      <td><?php $lang["table"]["playlist"]["body"]["nothingfound"] ?></td>
       <td></td>
       <td></td>
       <td></td>
@@ -274,7 +274,7 @@ function displayQueueGrid(){
   <tr>
     <td></td>
     <td></td>
-    <td><?php $lang["queue-nothingfound"] ?></td>
+    <td><?php $lang["table"]["queue"]["body"]["nothingfound"] ?></td>
     <td></td>
     <td></td>
     <td></td>
@@ -350,7 +350,6 @@ function getData(){
 
 function youtubeSearch($q){
   global $lang;
-  // Define an object that will be used to make all API requests.
   if (isset($_GET['pageToken'])) {
     $pageToken = $_GET['pageToken'];
   }else {
@@ -364,10 +363,6 @@ function youtubeSearch($q){
         'type' => 'video',
         'pageToken' => $pageToken,
       ));
-
-      // Add each result to the appropriate list, and then display the lists of
-      // matching videos, channels, and playlists.
-      //
       foreach ($searchResponse['items'] as $searchResult) {
         $title = $searchResult['snippet']['title'];
         $videourl = "https://www.youtube.com/watch?v=" . $searchResult['id']['videoId'];
