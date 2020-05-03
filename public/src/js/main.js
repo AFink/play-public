@@ -43,7 +43,7 @@ const InfoMsg = Swal.mixin({
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
-    timer: 2000,
+    timer: 20000,
     timerProgressBar: true,
     onOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
