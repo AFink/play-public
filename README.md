@@ -37,3 +37,5 @@ https://bootsnipp.com/snippets/M515A
 https://git.syslul.de/sysLUL/Sinusbot-API-PHP, Fork of https://git.syslul.de/Github-Mirror/Sinusbot-API-PHP
 
 https://darkmodejs.learn.uno/
+
+https://github.com/iiiBird/preloader

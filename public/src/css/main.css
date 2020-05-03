@@ -56,7 +56,7 @@
      --search-bg:var(--color-sec);
      --playbar-bg: var(--color-prim);
      --progressbar-bg: var(--color-accent);
-     --icon-color: var(--color-sec);
+     --icon-color: #e6e6e6;
      --icon-color-active: var(--color-accent);
      --rangeslider-empty-bg: #7f8c8d;
      --rangeslider-fill-bg: var(--color-accent);
