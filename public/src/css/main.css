@@ -301,13 +301,13 @@ ul.CTAs a {
   transition:none;
 }
 
-a.download {
+a.imprint {
 	background: var(--sidebar-btn-1);
 	color: var(--sidebar-btn-2);
 }
 
-a.sources,
-a.sources:hover {
+a.privacy,
+a.privacy:hover {
 	background: var(--sidebar-btn-2);
 	color: var(--sidebar-btn-1);
 }
@@ -527,6 +527,12 @@ MEDIAQUERIES
   thead tr th {
     border-color: var(--table-border)!important;
     color: var(--table-color-head);
+  }
+
+
+
+  nav form{
+    margin-bottom: 0;
   }
 
 /*
