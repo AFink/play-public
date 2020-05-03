@@ -7,9 +7,14 @@ class Language {
   private $langSelected;
   private $lang;
   private $langinfo;
-  private $langs;
 
-
+  /**
+   * Construct Language
+   *
+   * @param string   languagefile-path
+   * @param string   languagefile-extention
+   * @return void
+   */
   public function __construct($path = null, $extention = null){
     if ($path !== null) {
       $this->path = $path;
@@ -37,6 +42,16 @@ class Language {
       $this->lang = $filecontent["translations"];
   }
 
+
+  /**
+   * Detect browser Language
+   *
+   * @param array     allowed languages
+   * @param string    default language
+   * @param mixed     requested language (null = server default)
+   * @param bool      strict mode (default true)
+   * @return string   result language
+   */
   private function detectLang($allowed_languages, $default_language, $lang_variable = null, $strict_mode = true) {
     if ($lang_variable === null) {
       $lang_variable = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
@@ -86,14 +101,25 @@ class Language {
     return $current_lang;
   }
 
+  /**
+   * Return Found Languages
+   *
+   * @return array string of language-codes
+   */
 
   public function getExistingLangs(){
     $files = scandir($this->path);
     $files = array_diff($files, array('.', '..'));
     $files = array_values($files);
-    $this->langs = str_replace($this->extention, "", $files);
-    return $this->langs;
+    return str_replace($this->extention, "", $files);
   }
+
+  /**
+   * Return Language Information
+   *
+   * @param string language-code
+   * @return array language-infos
+   */
 
   public function getSpecificLangInfo($l){
     $langFile = $this->path . $l . $this->extention;
@@ -106,10 +132,20 @@ class Language {
     return $filecontent["langinfo"];
   }
 
+  /**
+   * Return Language Information
+   *
+   * @return array language-infos
+   */
   public function getLangInfo(){
     return $this->langinfo;
   }
 
+  /**
+   * Return current language-code
+   *
+   * @return string language-code
+   */
   public function userLanguage(){
       return $this->lang;
   }
