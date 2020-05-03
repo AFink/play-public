@@ -51,20 +51,20 @@ function selectInstance(){
     if (isset($_POST['instance'])) {
       if(in_array($_POST['instance'],_INSTANCEUUIDS)){
         $instanceUUID = $_POST['instance'];
-        $_SESSION['instance'] = $instanceUUID;
+        setcookie("instance", $instanceUUID, time()+2*24*60*60, "/");
         if (isset($_POST["extra"])) {
           if ($_POST["extra"] == "showMsg") {
 
             echo(json_encode(array("status" => "success", "message" => $lang["instance-selected1"] . "\"" . $sinusbot->getInstanceByUUID($instanceUUID)->getNick() ."\"" . $lang["instance-selected2"] . ".")));
           }
         }
-      }else if (isset($_SESSION['instance'])){
-          $instanceUUID = $_SESSION['instance'];
+      }else if (isset($_COOKIE['instance'])){
+          $instanceUUID = $_COOKIE['instance'];
       }else {
         $instanceUUID = _INSTANCEUUIDS[0];
       }
-    } else if (isset($_SESSION['instance'])){
-        $instanceUUID = $_SESSION['instance'];
+    } else if (isset($_COOKIE['instance'])){
+        $instanceUUID = $_COOKIE['instance'];
     } else {
       $instanceUUID = _INSTANCEUUIDS[0];
     }
@@ -142,8 +142,8 @@ function getLangList()
   foreach ($arr as $key) {
     $info = $language->getSpecificLangInfo($key);
     ?>
-      <li class="nav-item d-inline-block d-md-none <?php if ($info["code"] == $language->getLangInfo()["code"]) {echo " active";} ?>">
-        <a class="nav-link" onclick="selectLang('<?php echo $info["code"] ?>')"><?php echo $info["display"] ?></a>
+      <li class="nav-item d-inline-block d-md-none">
+        <a class="nav-link <?php if ($info["code"] == $language->getLangInfo()["code"]) {echo " active";} ?>" onclick="selectLang('<?php echo $info["code"] ?>')"><?php echo $info["display"] ?></a>
       </li>
       <?php
   }

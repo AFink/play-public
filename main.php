@@ -31,9 +31,6 @@ try {
 require_once 'includes/functions.php';
 
 
-
-
-session_start();
 try {
   makeSinusbot();
 } catch (\Exception $e) {
