@@ -620,9 +620,3 @@ MEDIAQUERIES
 .item.list-group-item:after {
 	clear: both;
 }
-
-
-
-.swal2-popup.swal2-toast{
-  background:red;
-}
