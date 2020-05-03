@@ -18,6 +18,7 @@ include("../includes/head.php");
                 <li id="radio" onclick="showRadio()"><a><?php echo $lang["sidebar"]["radio"] ?></a></li>
             </ul>
             <ul id="playlists" class="list-unstyled components">
+              <?php displayPlaylists() ?>
             </ul>
                 <ul class="list-unstyled CTAs">
                     <li>

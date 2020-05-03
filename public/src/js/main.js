@@ -139,7 +139,7 @@ function chooseContent(params){
 setDarkmode(isInDarkmode());
 chooseContent(getParams())
 makeSlider();
-getPlaylists();
+//getPlaylists();
 getData();
 var playerinterval = setInterval(getData, 10000);
 var t = setInterval(updateTimer, 200);
