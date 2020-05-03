@@ -109,26 +109,6 @@ $(document).ready(function () {
 });
 
 
-var options = {
-  bottom: '70px', // default: '32px'
-  right: '5px', // default: '32px'
-  left: 'unset', // default: 'unset'
-  time: '0.5s', // default: '0.3s'
-  mixColor: '#fff', // default: '#fff'
-  backgroundColor: '#fff',  // default: '#fff'
-  buttonColorDark: '#100f2c',  // default: '#100f2c'
-  buttonColorLight: '#fff', // default: '#fff'
-  saveInCookies: true, // default: true,
-  label: '🌓', // default: ''
-  autoMatchOsTheme: true // default: true
-}
-
-const darkmode = new Darkmode(options);
-darkmode.showWidget();
-
-
-
-
 function chooseContent(params){
    switch (params[0]) {
    case "folder":
@@ -156,7 +136,7 @@ function chooseContent(params){
    }
  }
 
-
+setDarkmode(isInDarkmode());
 chooseContent(getParams())
 makeSlider();
 getPlaylists();
@@ -252,6 +232,7 @@ function getPlaylists(){
  */
 function datatable(){
   filesTable = $('#filesTable').DataTable({
+    autoWidth : false,
     responsive : {
       details: false
     },
@@ -425,6 +406,8 @@ function showYoutube(){
       ChangeUrl('youtube', "youtube/");
   removeActive();
   $("#youtube").addClass('active');
+  $("#loadMore").hide();
+  $("#changeType").hide();
   $('#filesTable').hide();
   $('#youtubeDiv').show();
 }

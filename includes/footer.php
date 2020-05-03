@@ -5,5 +5,5 @@
 <script src="<?php echo _ROOTURL ?>src/js/sweetalert2.min.js"></script>
 <script src="<?php echo _ROOTURL ?>src/js/datatables.min.js"></script>
 <script src="<?php echo _ROOTURL ?>src/js/mCustomScrollbar.min.js"></script>
-<script src="<?php echo _ROOTURL ?>src/js/darkmode-js.min.js"></script>
+<script src="<?php echo _ROOTURL ?>src/js/darkmode.js"></script>
 <script src="<?php echo _ROOTURL ?>src/js/main.js"></script>
