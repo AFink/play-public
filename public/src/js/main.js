@@ -787,3 +787,14 @@ function ytQueue(url){
             }
       });
 }
+
+
+function selectLang(lang){
+  var url = window.location.href;
+  if (url.indexOf('?') > -1){
+     url += '&lang=' + lang;
+  }else{
+     url += '?lang=' + lang;
+  }
+  window.location.href = url;
+}

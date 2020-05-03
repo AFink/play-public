@@ -11,12 +11,15 @@ class Language {
   public function __construct(){
       if (isset($_GET["lang"])) {
         $lang = $_GET["lang"];
+        echo $lang;
       }elseif (isset($_SESSION["lang"])) {
         $lang = $_SESSION["lang"];
       }else {
         $lang = null;
       }
+      echo $lang;
       $this->UserLng = $this->detectLang($this->getExistingLangs(), 'de', $lang, false);
+      echo $this->UserLng;
       $_SESSION["lang"] = $this->UserLng;
       //construct lang file
       $langFile = '../langs/'. $this->UserLng . '.json';

@@ -103,8 +103,7 @@ SIDEBAR STYLE
     background: #fff;
 }
 
-#sidebar ul li.active>a,
-a[aria-expanded="true"] {
+#sidebar ul li.active>a {
     color: #fff;
     background: #6441A4;
 }
@@ -280,6 +279,9 @@ MEDIAQUERIES
 
 
 
+a[aria-expanded="true"]{
+  
+}
 
 nav form{
   margin-bottom: 0;
