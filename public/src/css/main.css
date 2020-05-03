@@ -63,6 +63,12 @@
      --darkmodetoggle-bg: #eeeeee;
 }
 
+ a[aria-expanded="true"] {
+    background-color: var(--main-bg);
+}
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #ededed;
+}
  body {
      font-family: 'Poppins', sans-serif;
      background: var(--main-bg);
@@ -143,7 +149,7 @@
      color: var(--sidebar-color-hover);
      background: var(--sidebar-bg-hover);
 }
- #sidebar ul li.active>a, a[aria-expanded="true"] {
+ #sidebar ul li.active>a{
      color: var(--sidebar-color-active);
      background: var(--sidebar-bg-active);
 }
@@ -502,32 +508,4 @@
 }
 .darkmode .dropdown.show{
     background-color: var(--color-prim);
-}
-
- .darkmode .swal2-popup.swal2-toast .swal2-success {
-      border-color: #8b8c8e!important;
-}
- .darkmode .swal2-popup.swal2-toast {
-     background: var(--color-sec)!important;
-     box-shadow: 0 0 0.625em var(--color-prim)!important;
-}
- .darkmode .swal2-popup {
-     background: var(--color-sec)!important;
-}
- .darkmode .swal2-title {
-     color: var(--color-text)!important;
-}
- .darkmode .swal2-styled.swal2-confirm {
-     background-color: var(--color-accent)!important;
-     color: var(--color-text)!important;
-}
- .darkmode .swal2-timer-progress-bar {
-     background: var(--color-text)!important;
-}
- .darkmode .swal2-content {
-     color: var(--color-text)!important;
-}
- .darkmode .swal2-icon.swal2-success {
-     border-color: #8b8c8e!important;
-     color: var(--color-text)!important;
 }
