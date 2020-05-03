@@ -43,7 +43,7 @@ const InfoMsg = Swal.mixin({
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
-    timer: 20000,
+    timer: 3000,
     timerProgressBar: true,
     onOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -141,7 +141,7 @@ chooseContent(getParams())
 makeSlider();
 //getPlaylists();
 getData();
-var playerinterval = setInterval(getData, 10000);
+var playerinterval = setInterval(getData, 1000);
 var t = setInterval(updateTimer, 200);
 requestAnimationFrame(updateValues);
 

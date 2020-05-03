@@ -509,3 +509,31 @@
 .darkmode .dropdown.show{
     background-color: var(--color-prim);
 }
+
+ .darkmode .swal2-popup.swal2-toast .swal2-success {
+      border-color: #8b8c8e!important;
+}
+ .darkmode .swal2-popup.swal2-toast {
+     background: var(--color-sec)!important;
+     box-shadow: 0 0 0.625em var(--color-prim)!important;
+}
+ .darkmode .swal2-popup {
+     background: var(--color-sec)!important;
+}
+ .darkmode .swal2-title {
+     color: var(--color-text)!important;
+}
+ .darkmode .swal2-styled.swal2-confirm {
+     background-color: var(--color-accent)!important;
+     color: var(--color-text)!important;
+}
+ .darkmode .swal2-timer-progress-bar {
+     background: var(--color-text)!important;
+}
+ .darkmode .swal2-content {
+     color: var(--color-text)!important;
+}
+ .darkmode .swal2-icon.swal2-success {
+     border-color: #8b8c8e!important;
+     color: var(--color-text)!important;
+}
