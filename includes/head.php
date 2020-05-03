@@ -7,7 +7,7 @@
       <meta http-equiv="Expires" content="-1" />
       <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/bootstrap.min.css">
       <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/rangeslider.css">
-      <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/sweetalert2.min.css">
+
       <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/datatables.min.css">
       <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/mCustomScrollbar.min.css">
       <link rel="stylesheet" href="<?php echo _ROOTURL ?>src/css/main.css">
