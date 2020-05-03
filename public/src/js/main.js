@@ -380,6 +380,7 @@ function showRadio(){
   $('#radioTableDiv').show();
   if(i2 == 0){
   var radioTable = $('#radioTable').DataTable( {
+    "autoWidth" : false,
     "createdRow": function( row, data, dataIndex ) {
       $(row).attr('onclick','playUrl(\'' + data['u'] +'\')');
   },

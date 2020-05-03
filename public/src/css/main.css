@@ -274,13 +274,6 @@ a[data-toggle="collapse"] {
 	position: relative;
 }
 
-.dropdown-toggle::after {
-	display: block;
-	position: absolute;
-	top: 50%;
-	right: 20px;
-	transform: translateY(-50%);
-}
 
 #mCSB_1_container>ul:nth-child(2) {
 	margin-bottom: 0;
