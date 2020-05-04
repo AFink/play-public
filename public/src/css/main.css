@@ -102,9 +102,7 @@
      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
      z-index: 20;
 }
- .navbar .active{
-     color: var(--navbar-color-active)!important;
-}
+
  #navbarToBeToggled>form {
      margin-bottom: 0;
 }
@@ -508,6 +506,9 @@
 }
 .darkmode .nav-link{
     color: var(--navbar-color)!important;
+}
+.navbar .active{
+    color: var(--navbar-color-active)!important;
 }
 .darkmode .dropdown.show{
     background-color: var(--color-prim);
