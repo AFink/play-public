@@ -55,7 +55,7 @@ function selectInstance(){
         if (isset($_POST["extra"])) {
           if ($_POST["extra"] == "showMsg") {
 
-            echo(json_encode(array("status" => "success", "message" => $lang["alert"]["instance"]["selected1"] . "\"" . $sinusbot->getInstanceByUUID($instanceUUID)->getNick() ."\"" . $lang["instance-selected2"] . ".")));
+            echo(json_encode(array("status" => "success", "message" => $lang["alert"]["instance"]["selected1"] . "\"" . $sinusbot->getInstanceByUUID($instanceUUID)->getNick() ."\"" . $lang["alert"]["instance"]["selected2"] . ".")));
           }
         }
       }else if (isset($_COOKIE['instance'])){
