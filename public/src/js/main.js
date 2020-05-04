@@ -558,7 +558,7 @@ if(running){
   }
 
 
-  $("#navbarToBeToggled > ul > li > a").removeClass("active");
+  $(".instances > ul > li > a").removeClass("active");
   $("#" + instanceuuid).addClass("active");
 
   $("input[type=range]").val(volume).change();
