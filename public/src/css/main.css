@@ -108,6 +108,9 @@
  #navbarToBeToggled>form {
      margin-bottom: 0;
 }
+.nav-row{
+  display:contents;
+}
 /* --------------------------------------------------- SIDEBAR STYLE ----------------------------------------------------- */
  .wrapper {
      display: flex;
@@ -177,11 +180,11 @@
  .badge{
      transition:none;
 }
- a.imprint {
+ a.imprint, a.privacy:hover {
      background: var(--sidebar-btn-1);
      color: var(--sidebar-btn-2);
 }
- a.privacy, a.privacy:hover {
+ a.privacy, a.imprint:hover {
      background: var(--sidebar-btn-2);
      color: var(--sidebar-btn-1);
 }
