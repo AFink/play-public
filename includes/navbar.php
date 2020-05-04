@@ -22,7 +22,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <form class="form-inline d-none d-sm-flex">
-            <input class="form-control mr-sm-2" type="search" placeholder="<?php echo $lang["navbar"]["search"] ?>" aria-label="<?php echo $lang["navbar"]["search"] ?>">
+            <input class="form-control mr-sm-2" id="search" type="search" placeholder="<?php echo $lang["navbar"]["search"] ?>" aria-label="<?php echo $lang["navbar"]["search"] ?>">
           </form>
         </li>
         <li class="d-inline-block d-md-none">
